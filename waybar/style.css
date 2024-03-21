@@ -1,0 +1,47 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Hack Nerd Font;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button.active {
+  background: #52376d;
+  opacity: 1;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#mpd,
+#window,
+#workspaces button,
+#custom-wl-gammarelay-temperature,
+#custom-wl-gammarelay-brightness {
+  background: #161c27;
+  border-radius: 8px;
+  color: #ffffff;
+  margin: 8px 4px;
+  opacity: 0.7;
+  padding: 8px 12px;
+}
+
+#window {
+  min-width: 96px;
+}
+
+#workspaces button {
+  padding: 8px;
+}
