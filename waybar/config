@@ -23,7 +23,7 @@
     "warp-on-scroll": false,
     "format": "{name}",
     "persistent-workspaces": {
-      "*": 6
+      "*": 5
     }
   },
   "clock": {
