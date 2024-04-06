@@ -22,13 +22,13 @@
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{icon}",
+    "format": "<big>{icon}</big>",
     "format-icons": {
-      "1": "<span size=\"x-large\">\uf489</span>",
-      "2": "<span size=\"x-large\">\uf07b</span>",
-      "3": "<span size=\"x-large\">\udb80\udde9</span>",
-      "4": "<span size=\"x-large\">\uf1bc</span>",
-      "5": "<span size=\"x-large\">\uf475</span>"
+      "1": "\uf489",
+      "2": "\uf07b",
+      "3": "\udb80\udde9",
+      "4": "\uf1bc",
+      "5": "\uf475"
     },
     "persistent-workspaces": {
       "*": 5
@@ -37,24 +37,24 @@
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "<span size=\"x-large\">\udb85\udc4e</span> {:%H:%M}",
-    "format-alt": "<span size=\"x-large\">\udb83\ude17</span> {:%d/%m/%Y}"
+    "format": "<big>\udb85\udc4e</big> {:%H:%M}",
+    "format-alt": "<big>\udb83\ude17</big> {:%d/%m/%Y}"
   },
   "cpu": {
-    "format": "<span size=\"x-large\">\udb80\udf5b</span> {usage}%",
+    "format": "<big>\udb80\udf5b</big> {usage}%",
     "tooltip": false
   },
   "memory": {
-    "format": "<span size=\"x-large\">\uee02</span> {}%"
+    "format": "<big>\uee02</big> {}%"
   },
   "network": {
-    "format-wifi": "<span size=\"x-large\">\udb81\udda9</span> {essid}",
-    "format-ethernet": "<span size=\"x-large\">\udb80\ude00</span> {ipaddr}/{cidr}",
-    "format-disconnected": "Disconnected <span size=\"x-large\">\uf071</span>"
+    "format-wifi": "<big>\udb81\udda9</big> {essid}",
+    "format-ethernet": "<big>\udb80\ude00</big> {ipaddr}/{cidr}",
+    "format-disconnected": "Disconnected <big>\uf071</big>"
   },
   "pulseaudio#output": {
     "scroll-step": 5,
-    "format": "<span size=\"x-large\">{icon}</span> {volume}%",
+    "format": "<big>{icon}</big> {volume}%",
     "format-icons": {
       "default": [
         "\udb81\udd7f",
@@ -67,18 +67,18 @@
   "pulseaudio#input": {
     "scroll-step": 5,
     "format": "{format_source}",
-    "format-source": "<span size=\"x-large\">\udb80\udf6c</span> {volume}%",
-    "format-source-muted": "<span size=\"x-large\">\udb80\udf6d</span> {volume}%",
+    "format-source": "<big>\udb80\udf6c</big> {volume}%",
+    "format-source-muted": "<big>\udb80\udf6d</big> {volume}%",
     "on-click": "pavucontrol"
   },
   "custom/wl-gammarelay-temperature": {
-    "format": "<span size=\"x-large\">\uf2c9</span> {}",
+    "format": "<big>\uf2c9</big> {}",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
   },
   "custom/wl-gammarelay-brightness": {
-    "format": "<span size=\"x-large\">\udb80\udce0</span> {}",
+    "format": "<big>\udb80\udce0</big> {}",
     "exec": "wl-gammarelay-rs watch {bp}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.05"
