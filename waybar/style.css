@@ -14,9 +14,17 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
+.modules-left,
+.modules-center,
+.modules-right {
+  background: rgba(22, 28, 39, 0.8);
+  border-radius: 8px;
+  margin: 8px 8px 0 8px;
+  padding: 2px 8px;
+}
+
 #workspaces button.active {
-  background: #52376d;
-  opacity: 1;
+  font-weight: bolder;
 }
 
 #clock,
@@ -30,12 +38,10 @@ window#waybar.hidden {
 #workspaces button,
 #custom-wl-gammarelay-temperature,
 #custom-wl-gammarelay-brightness {
-  background: #161c27;
   border-radius: 8px;
   color: #ffffff;
-  margin: 8px 4px 0px 4px;
-  opacity: 0.7;
-  padding: 8px 12px;
+  margin: 0;
+  padding: 4px;
 }
 
 #window {
@@ -43,5 +49,5 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 8px;
+  padding: 0 8px;
 }
