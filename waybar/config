@@ -22,7 +22,14 @@
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{name}",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span size=\"x-large\">\uf489</span>",
+      "2": "<span size=\"x-large\">\uf07b</span>",
+      "3": "<span size=\"x-large\">\udb80\udde9</span>",
+      "4": "<span size=\"x-large\">\uf1bc</span>",
+      "5": "<span size=\"x-large\">\uf475</span>"
+    },
     "persistent-workspaces": {
       "*": 5
     }
