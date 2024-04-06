@@ -10,7 +10,8 @@
     "hyprland/window"
   ],
   "modules-right": [
-    "pulseaudio",
+    "pulseaudio#output",
+    "pulseaudio#input",
     "network",
     "cpu",
     "memory",
@@ -29,48 +30,48 @@
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "<span size=\"x-large\">\udb85\udc4e</span> {:%H:%M}",
+    "format-alt": "<span size=\"x-large\">\udb83\ude17</span> {:%d/%m/%Y}"
   },
   "cpu": {
-    "format": "CPU {usage}%",
+    "format": "<span size=\"x-large\">\udb80\udf5b</span> {usage}%",
     "tooltip": false
   },
   "memory": {
-    "format": "Mem {}%"
+    "format": "<span size=\"x-large\">\uee02</span> {}%"
   },
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-wifi": "<span size=\"x-large\">\udb81\udda9</span> {essid}",
+    "format-ethernet": "<span size=\"x-large\">\udb80\ude00</span> {ipaddr}/{cidr}",
+    "format-disconnected": "Disconnected <span size=\"x-large\">\uf071</span>"
   },
-  "pulseaudio": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+  "pulseaudio#output": {
+    "scroll-step": 5,
+    "format": "<span size=\"x-large\">{icon}</span> {volume}%",
     "format-icons": {
       "default": [
-        "",
-        "",
-        ""
+        "\udb81\udd7f",
+        "\udb81\udd80",
+        "\udb81\udd7e"
       ]
     },
     "on-click": "pavucontrol"
   },
+  "pulseaudio#input": {
+    "scroll-step": 5,
+    "format": "{format_source}",
+    "format-source": "<span size=\"x-large\">\udb80\udf6c</span> {volume}%",
+    "format-source-muted": "<span size=\"x-large\">\udb80\udf6d</span> {volume}%",
+    "on-click": "pavucontrol"
+  },
   "custom/wl-gammarelay-temperature": {
-    "format": "{} ",
+    "format": "<span size=\"x-large\">\uf2c9</span> {}",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
   },
   "custom/wl-gammarelay-brightness": {
-    "format": "{} ",
+    "format": "<span size=\"x-large\">\udb80\udce0</span> {}",
     "exec": "wl-gammarelay-rs watch {bp}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.05"
