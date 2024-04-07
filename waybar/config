@@ -4,12 +4,12 @@
   "spacing": 4,
   "modules-left": [
     "clock",
-    "pulseaudio#sink",
-    "pulseaudio#source",
     "mpris"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "pulseaudio#sink",
+    "hyprland/workspaces",
+    "pulseaudio#source"
   ],
   "modules-right": [
     "custom/wl-gammarelay-brightness",
