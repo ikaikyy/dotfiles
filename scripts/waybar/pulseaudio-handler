@@ -1,0 +1,46 @@
+#!/bin/bash
+
+max_volume=100
+
+possible_targets_regex="^(sink|source)$"
+possible_events_regex="^(on_click|on_scroll_up|on_scroll_down)$"
+
+if [[ ! $1 =~ $possible_targets_regex ]]; then
+  echo "Invalid target: $1"
+  exit 1
+fi
+
+target=$1
+uppercased_target=$(echo $target | tr 'a-z' 'A-Z')
+
+if [[ ! $2 =~ $possible_events_regex ]]; then
+  echo "Invalid event: $2"
+  exit 1
+fi
+
+event=$2
+
+volume=$(pactl get-$target-volume @DEFAULT_$uppercased_target@ | grep -Po '\d+(?=%)' | head -n 1)
+
+on_click () {
+  pactl set-$target-mute @DEFAULT_$uppercased_target@ toggle
+}
+
+on_scroll_up () {
+  if ((volume + 5 < max_volume)); then
+    pactl set-$target-volume @DEFAULT_$uppercased_target@ +5%
+    return 0
+  fi
+
+  pactl set-$target-volume @DEFAULT_$uppercased_target@ 100%
+}
+
+on_scroll_down () {
+  if ((volume == 0)); then
+    return 0
+  fi
+
+  pactl set-$target-volume @DEFAULT_$uppercased_target@ -5%
+}
+
+eval $event

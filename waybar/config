@@ -10,8 +10,8 @@
     "hyprland/window"
   ],
   "modules-right": [
-    "pulseaudio#output",
-    "pulseaudio#input",
+    "pulseaudio#sink",
+    "pulseaudio#source",
     "network",
     "cpu",
     "memory",
@@ -52,8 +52,7 @@
     "format-ethernet": "<big>\udb80\ude00</big> {ipaddr}/{cidr}",
     "format-disconnected": "Disconnected <big>\uf071</big>"
   },
-  "pulseaudio#output": {
-    "scroll-step": 5,
+  "pulseaudio#sink": {
     "format": "<big>{icon}</big> {volume}%",
     "format-icons": {
       "default": [
@@ -62,14 +61,17 @@
         "\udb81\udd7e"
       ]
     },
-    "on-click": "pavucontrol"
+    "on-click": "$HOME/scripts/waybar/pulseaudio-handler sink on_click",
+    "on-scroll-up": "$HOME/scripts/waybar/pulseaudio-handler sink on_scroll_up",
+    "on-scroll-down": "$HOME/scripts/waybar/pulseaudio-handler sink on_scroll_down"
   },
-  "pulseaudio#input": {
-    "scroll-step": 5,
+  "pulseaudio#source": {
     "format": "{format_source}",
     "format-source": "<big>\udb80\udf6c</big> {volume}%",
     "format-source-muted": "<big>\udb80\udf6d</big> {volume}%",
-    "on-click": "pavucontrol"
+    "on-click": "$HOME/scripts/waybar/pulseaudio-handler source on_click",
+    "on-scroll-up": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_up",
+    "on-scroll-down": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_down"
   },
   "custom/wl-gammarelay-temperature": {
     "format": "<big>\uf2c9</big> {}",
