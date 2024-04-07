@@ -5,7 +5,8 @@
   "modules-left": [
     "clock",
     "pulseaudio#sink",
-    "pulseaudio#source"
+    "pulseaudio#source",
+    "mpris"
   ],
   "modules-center": [
     "hyprland/workspaces"
@@ -72,6 +73,20 @@
     "on-click": "$HOME/scripts/waybar/pulseaudio-handler source on_click",
     "on-scroll-up": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_up",
     "on-scroll-down": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_down"
+  },
+  "mpris": {
+    "interval": 1,
+    "format": "<big>{player_icon}</big> <b>{artist}</b> - {title} <big>{status_icon}</big> {position}/{length}",
+    "artist-len": 20,
+    "title-len": 20,
+    "player-icons": {
+      "edge": "\udb80\udde9",
+      "spotify": "\uf1bc"
+    },
+    "status-icons": {
+      "playing": "\uf04c",
+      "paused": "\uf04b"
+    }
   },
   "custom/wl-gammarelay-temperature": {
     "format": "<big>\uf2c9</big> {}",
