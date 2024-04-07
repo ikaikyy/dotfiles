@@ -23,10 +23,6 @@ window#waybar.hidden {
   padding: 2px 8px;
 }
 
-.modules-left {
-  padding-right: 2px;
-}
-
 #workspaces button.active {
   background: rgba(255, 255, 255, 0.1);
 }
