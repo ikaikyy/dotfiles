@@ -7,6 +7,12 @@ ask_for_confirmation() {
   fi
 }
 
+remove_existing_symlink() {
+  if [[ -L $1 ]]; then
+    rm $1
+  fi
+}
+
 backup_if_exists() {
   if [[ -e $1 ]]; then
     mkdir -p $PWD/.bak
@@ -14,7 +20,7 @@ backup_if_exists() {
   fi
 }
 
-ask_for_confirmation "Conflicting files from $HOME/.config will be backed up on in your current directory ($PWD/.bak). Continue?" || exit 1
+ask_for_confirmation "Conflicting files from $HOME/.config will be backed up on in your current directory ($PWD/.bak) and symlinks will be removed. Continue?" || exit 1
 
 while read line; do
   if [[ $line == \#* || $line == "" ]]; then
@@ -29,6 +35,7 @@ while read line; do
     value=$HOME/$value
   fi
 
+  remove_existing_symlink $value
   backup_if_exists $value
 
   ln -s $PWD/$key $value
