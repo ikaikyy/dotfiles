@@ -4,19 +4,18 @@
   "spacing": 4,
   "modules-left": [
     "clock",
-    "hyprland/workspaces"
+    "pulseaudio#sink",
+    "pulseaudio#source"
   ],
   "modules-center": [
-    "hyprland/window"
+    "hyprland/workspaces"
   ],
   "modules-right": [
-    "pulseaudio#sink",
-    "pulseaudio#source",
+    "custom/wl-gammarelay-brightness",
+    "custom/wl-gammarelay-temperature",
     "network",
     "cpu",
-    "memory",
-    "custom/wl-gammarelay-temperature",
-    "custom/wl-gammarelay-brightness"
+    "memory"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
