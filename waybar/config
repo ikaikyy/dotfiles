@@ -54,6 +54,7 @@
   },
   "pulseaudio#sink": {
     "format": "<big>{icon}</big> {volume}%",
+    "format-muted": "<big>\udb83\ude08</big> {volume}%",
     "format-icons": {
       "default": [
         "\udb81\udd7f",
