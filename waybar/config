@@ -37,7 +37,7 @@
     "interval": 1,
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%d/%m/%Y}</big>\n<tt>{calendar}</tt>",
-    "format": "<big>\udb85\udc4e</big> {:%H:%M:%S}"
+    "format": "<big>\udb82\udcc7</big> {:%H:%M:%S}"
   },
   "network": {
     "format-wifi": "<big>\udb81\udda9</big> {essid}",
