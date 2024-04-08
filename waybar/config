@@ -4,7 +4,8 @@
   "spacing": 4,
   "modules-left": [
     "clock",
-    "mpris"
+    "mpris",
+    "cava"
   ],
   "modules-center": [
     "pulseaudio#sink",
@@ -87,6 +88,25 @@
       "playing": "\uf04c",
       "paused": "\uf04b"
     }
+  },
+  "cava": {
+    "framerate": 30,
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "bars": 12,
+    "method": "pulse",
+    "source": "auto",
+    "format-icons": [
+      "\u2581",
+      "\u2582",
+      "\u2583",
+      "\u2584",
+      "\u2585",
+      "\u2586",
+      "\u2587",
+      "\u2588"
+    ]
   },
   "custom/wl-gammarelay-temperature": {
     "format": "<big>\uf2c9</big> {}",
