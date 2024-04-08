@@ -35,21 +35,15 @@
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt>{calendar}</tt>",
     "format": "<big>\udb85\udc4e</big> {:%H:%M}",
     "format-alt": "<big>\udb83\ude17</big> {:%d/%m/%Y}"
-  },
-  "cpu": {
-    "format": "<big>\udb80\udf5b</big> {usage}%",
-    "tooltip": false
-  },
-  "memory": {
-    "format": "<big>\uee02</big> {}%"
   },
   "network": {
     "format-wifi": "<big>\udb81\udda9</big> {essid}",
     "format-ethernet": "<big>\udb80\ude00</big> {ipaddr}/{cidr}",
-    "format-disconnected": "Disconnected <big>\uf071</big>"
+    "format-disconnected": "Disconnected <big>\uf071</big>",
+    "tooltip-format": "{essid} {ipaddr}/{cidr}"
   },
   "pulseaudio#sink": {
     "format": "<big>{icon}</big> {volume}%",
@@ -75,9 +69,9 @@
   },
   "mpris": {
     "interval": 1,
-    "format": "<big>{player_icon}</big> <b>{artist}</b> - {title} <big>{status_icon}</big> {position}/{length}",
-    "artist-len": 20,
-    "title-len": 20,
+    "format": "<big>{player_icon}</big> <b>{title}</b> <big>{status_icon}</big> {position}/{length} ",
+    "tooltip-format": "{artist} - {album} - {title}",
+    "title-len": 30,
     "player-icons": {
       "edge": "\udb80\udde9",
       "spotify": "\uf1bc"
@@ -107,12 +101,14 @@
     ]
   },
   "custom/wl-gammarelay-temperature": {
+    "tooltip": false,
     "format": "<big>\uf2c9</big> {}",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
   },
   "custom/wl-gammarelay-brightness": {
+    "tooltip": false,
     "format": "<big>\udb80\udce0</big> {}",
     "exec": "wl-gammarelay-rs watch {bp}",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
