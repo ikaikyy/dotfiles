@@ -13,11 +13,9 @@
     "pulseaudio#source"
   ],
   "modules-right": [
-    "custom/wl-gammarelay-brightness",
-    "custom/wl-gammarelay-temperature",
     "network",
-    "cpu",
-    "memory"
+    "custom/wl-gammarelay-brightness",
+    "custom/wl-gammarelay-temperature"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
