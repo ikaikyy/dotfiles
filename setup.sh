@@ -27,7 +27,7 @@ while read line; do
     continue
   fi
 
-  IFS=: read -r key value <<< "$line"
+  IFS=: read -r key value action <<< "$line"
 
   if [[ ! $value ]]; then
     value=$HOME/.config/$key
@@ -38,5 +38,9 @@ while read line; do
   remove_existing_symlink $value
   backup_if_exists $value
 
-  ln -s $PWD/$key $value
+  if [[ $action == "copy" ]]; then
+    cp -r $PWD/$key $value
+  else
+    ln -s $PWD/$key $value
+  fi
 done < setup.conf
