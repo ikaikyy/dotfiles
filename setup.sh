@@ -15,6 +15,10 @@ remove_existing_symlink() {
 
 backup_if_exists() {
   if [[ -e $1 ]]; then
+    if [[ -e $PWD/.bak ]]; then
+      rm -rf $PWD/.bak
+    fi
+
     mkdir -p $PWD/.bak
     mv $1 $PWD/.bak
   fi
