@@ -15,7 +15,7 @@ remove_existing_symlink() {
 
 backup_if_exists() {
   if [[ -e $1 ]]; then
-    if [[ -e $PWD/.bak ]]; then
+    if [[ ! -L $1 && -e $PWD/.bak ]]; then
       rm -rf $PWD/.bak
     fi
 
