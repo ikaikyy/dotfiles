@@ -1,0 +1,75 @@
+configuration {
+  display-drun: "Apps";
+  show-icons: true;
+}
+
+* {
+  background: transparent;
+  border: none;
+  font: "Hack 13";
+  foreground: white;
+  lightbg: transparent;
+}
+
+element {
+  border-radius: 8px;
+  padding: 8px;
+}
+
+element normal.normal,
+element alternate.normal {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+element selected.normal {
+  background-color: rgba(255, 255, 255, 0.33);
+}
+
+element-text {
+  color: white;
+  font-size: 16px;
+}
+
+entry {
+  padding: 8px;
+  placeholder: "Search...";
+}
+
+inputbar {
+  background-color: rgba(0, 0, 0, 0.66);
+  border-radius: 8px;
+  padding: 8px;
+
+  children: [prompt, entry];
+}
+
+listview {
+  border: 0;
+  lines: 8;
+  scrollbar: false;
+  spacing: 8px;
+}
+
+mainbox {
+  spacing: 16px;
+}
+
+prompt {
+  background-color: rgba(255, 255, 255, 0.33);
+  border-radius: 8px;
+  font: "Hack Bold 13";
+  padding: 8px;
+}
+
+scrollbar {
+  handle-border-radius: 8px;
+}
+
+window {
+  background-color: rgba(30, 30, 30, 0.75);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+
+  width: 40%;
+}
