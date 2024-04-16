@@ -1,5 +1,4 @@
 configuration {
-  display-drun: "";
   show-icons: true;
 }
 
@@ -39,7 +38,7 @@ entry {
 }
 
 inputbar {
-  children: [prompt, entry];
+  children: [textbox-prompt-colon, entry];
 }
 
 listview {
@@ -53,20 +52,17 @@ mainbox {
   spacing: 16px;
 }
 
-prompt {
-  background-color: #d8d8d8;
-  border-radius: 12px;
-  color: #262626;
-  font: "JetBrainsMono Nerd Font Mono 18";
-  padding: 4px 14px;
-}
-
 scrollbar {
   handle-border-radius: 8px;
 }
 
 textbox-prompt-colon {
+  background-color: #d8d8d8;
+  border-radius: 12px;
   color: #262626;
+  font: "JetBrainsMono Nerd Font Mono 18";
+  padding: 4px 14px;
+  str: "";
 }
 
 window {
