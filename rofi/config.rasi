@@ -7,26 +7,29 @@ configuration {
   background: transparent;
   border: none;
   font: "Hack 13";
-  foreground: white;
+  foreground: #d8d8d8;
   lightbg: transparent;
 }
 
 element {
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 12px;
+  padding: 12px;
 }
 
 element normal.normal,
 element alternate.normal {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+  text-color: #d8d8d8;
 }
 
-element selected.normal {
-  background-color: rgba(255, 255, 255, 0.33);
+element selected.normal,
+element selected.alternate,
+element selected.active {
+  background-color: #d8d8d8;
+  text-color: #262626;
 }
 
 element-text {
-  color: white;
   font-size: 16px;
 }
 
@@ -36,16 +39,14 @@ entry {
 }
 
 inputbar {
-  border-radius: 8px;
-
   children: [prompt, entry];
 }
 
 listview {
   border: 0;
-  lines: 8;
+  lines: 6;
   scrollbar: false;
-  spacing: 8px;
+  spacing: 12px;
 }
 
 mainbox {
@@ -53,10 +54,11 @@ mainbox {
 }
 
 prompt {
-  background-color: rgba(255, 255, 255, 0.33);
-  border-radius: 8px;
+  background-color: #d8d8d8;
+  border-radius: 12px;
+  color: #262626;
   font: "Hack Bold 13";
-  padding: 8px;
+  padding: 10px;
 }
 
 scrollbar {
@@ -64,10 +66,10 @@ scrollbar {
 }
 
 window {
-  background-color: rgba(30, 30, 30, 0.75);
+  background-color: #262626;
   border: none;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 20px;
 
-  width: 40%;
+  width: 30%;
 }
