@@ -1,12 +1,12 @@
 configuration {
-  display-drun: "Apps";
+  display-drun: "";
   show-icons: true;
 }
 
 * {
   background: transparent;
   border: none;
-  font: "Hack 13";
+  font: "JetBrainsMono Nerd Font 13";
   foreground: #d8d8d8;
   lightbg: transparent;
 }
@@ -57,12 +57,16 @@ prompt {
   background-color: #d8d8d8;
   border-radius: 12px;
   color: #262626;
-  font: "Hack Bold 13";
-  padding: 10px;
+  font: "JetBrainsMono Nerd Font Mono 18";
+  padding: 4px 14px;
 }
 
 scrollbar {
   handle-border-radius: 8px;
+}
+
+textbox-prompt-colon {
+  color: #262626;
 }
 
 window {
