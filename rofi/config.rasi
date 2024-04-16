@@ -34,7 +34,7 @@ element-text {
 }
 
 entry {
-  padding: 8px;
+  padding: 10px;
   placeholder: "Search...";
 }
 
@@ -62,7 +62,7 @@ textbox-prompt-colon {
   border-radius: 12px;
   color: #262626;
   font: "JetBrainsMono Nerd Font Mono 18";
-  padding: 4px 14px;
+  padding: 6px 18px;
   str: "";
 }
 
