@@ -26,3 +26,5 @@ alias zshconfig="nvim ~/.zshrc"
 
 export ANDROID_HOME=/home/kaiky/Android/Sdk
 
+. /opt/asdf-vm/asdf.sh
+
