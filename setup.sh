@@ -43,6 +43,7 @@ while read line; do
   backup_if_exists $value
 
   if [[ $action == "copy" ]]; then
+    mkdir -p $value
     cp -r $PWD/$key $value
   else
     ln -s $PWD/$key $value
