@@ -14,11 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
+  "nvim-treesitter/nvim-treesitter",
+  "folke/tokyonight.nvim",
   "rstacruz/vim-closer",
-  "lunarvim/lunar.nvim",
   "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
-  "nvim-treesitter/nvim-treesitter",
   "VonHeikemen/lsp-zero.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
