@@ -29,6 +29,7 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "stevearc/conform.nvim",
   "nvim-tree/nvim-web-devicons",
+  "nvim-tree/nvim-tree.lua",
   "folke/trouble.nvim",
   "MunifTanjim/nui.nvim",
   "github/copilot.vim",

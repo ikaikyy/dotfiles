@@ -14,7 +14,7 @@ local groups = {
   'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
   'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
   'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-  'EndOfBuffer'
+  'EndOfBuffer', 'NvimTreeNormal', 'NvimTreeNormalNC', 'NvimTreeSignColumn', 'NvimTreeWinSeparator',
 }
 
 for _, group in ipairs(groups) do
