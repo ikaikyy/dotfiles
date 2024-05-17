@@ -1,7 +1,11 @@
+import = [
+"~/.config/alacritty/catppuccin-mocha.toml"
+]
+
 [window]
 blur = true
 dynamic_padding = true
-opacity = 0.6
+opacity = 0.5
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
