@@ -27,6 +27,15 @@ require("catppuccin").setup({
       peach = "#ffbe76",
     },
   },
+  custom_highlights = function(colors)
+    return {
+      CursorLine = { bg = colors.surface0 },
+      CursorLineFold = { bg = colors.surface0 },
+      CursorLineNr = { bg = colors.surface0 },
+      CursorLineSign = { bg = colors.surface0 },
+      LineNr = { fg = colors.sky },
+    }
+  end,
 })
 
 vim.cmd.colorscheme("catppuccin")
