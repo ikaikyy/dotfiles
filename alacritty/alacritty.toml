@@ -1,10 +1,11 @@
 [window]
 blur = true
+dynamic_padding = true
 opacity = 0.6
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 12.16
+size = 13.2
 
 [keyboard]
 bindings = [
