@@ -15,7 +15,7 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
   "nvim-treesitter/nvim-treesitter",
-  "folke/tokyonight.nvim",
+  { "catppuccin/nvim", name = "catppuccin" },
   "rstacruz/vim-closer",
   "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",

@@ -6,5 +6,3 @@ vim.bo.softtabstop = 2
 vim.opt.relativenumber = true
 
 vim.opt.clipboard = "unnamedplus"
-
-vim.cmd.colorscheme('tokyonight')
