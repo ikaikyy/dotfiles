@@ -16,7 +16,6 @@ require("mason-lspconfig").setup({
     "htmx",
     "jsonls",
     "lua_ls",
-    "pint",
     "phpactor",
     "rust_analyzer",
     "tsserver",
