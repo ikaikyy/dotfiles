@@ -17,6 +17,7 @@ conform.setup({
     lua = { "stylua" },
     go = { "goimports" },
     rust = { "rustfmt" },
+    php = { "pint" },
   },
   format_on_save = {
     lsp_fallback = true,
