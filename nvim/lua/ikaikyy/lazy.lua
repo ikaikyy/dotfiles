@@ -36,5 +36,6 @@ require("lazy").setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-  }
+  },
+  "nvim-lualine/lualine.nvim",
 })
