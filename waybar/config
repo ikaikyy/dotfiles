@@ -55,17 +55,17 @@
         "\udb81\udd7e"
       ]
     },
-    "on-click": "$HOME/scripts/waybar/pulseaudio-handler sink on_click",
-    "on-scroll-up": "$HOME/scripts/waybar/pulseaudio-handler sink on_scroll_up",
-    "on-scroll-down": "$HOME/scripts/waybar/pulseaudio-handler sink on_scroll_down"
+    "on-click": "$HOME/scripts/utils/pulseaudio-handler sink mute",
+    "on-scroll-up": "$HOME/scripts/utils/pulseaudio-handler sink volume_up",
+    "on-scroll-down": "$HOME/scripts/utils/pulseaudio-handler sink volume_down"
   },
   "pulseaudio#source": {
     "format": "{format_source}",
     "format-source": "<big>\udb80\udf6c</big> {volume}%",
     "format-source-muted": "<big>\udb80\udf6d</big> {volume}%",
-    "on-click": "$HOME/scripts/waybar/pulseaudio-handler source on_click",
-    "on-scroll-up": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_up",
-    "on-scroll-down": "$HOME/scripts/waybar/pulseaudio-handler source on_scroll_down"
+    "on-click": "$HOME/scripts/utils/pulseaudio-handler source mute",
+    "on-scroll-up": "$HOME/scripts/utils/pulseaudio-handler source volume_up",
+    "on-scroll-down": "$HOME/scripts/utils/pulseaudio-handler source volume_down"
   },
   "mpris": {
     "interval": 1,
