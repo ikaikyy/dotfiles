@@ -18,6 +18,7 @@ conform.setup({
     go = { "goimports" },
     rust = { "rustfmt" },
     php = { "pint" },
+    kotlin = { "ktfmt" },
   },
   format_on_save = {
     lsp_fallback = true,

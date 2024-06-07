@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
     "phpactor",
     "rust_analyzer",
     "tsserver",
+    "kotlin_language_server",
   },
   handlers = {
     lsp_zero.default_setup,
