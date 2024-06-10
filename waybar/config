@@ -55,7 +55,7 @@
         "\udb81\udd7e"
       ]
     },
-    "on-click": "$HOME/scripts/utils/pulseaudio-handler sink mute",
+    "on-click": "$HOME/scripts/utils/pulseaudio-handler sink toggle_mute",
     "on-scroll-up": "$HOME/scripts/utils/pulseaudio-handler sink volume_up",
     "on-scroll-down": "$HOME/scripts/utils/pulseaudio-handler sink volume_down"
   },
@@ -63,7 +63,7 @@
     "format": "{format_source}",
     "format-source": "<big>\udb80\udf6c</big> {volume}%",
     "format-source-muted": "<big>\udb80\udf6d</big> {volume}%",
-    "on-click": "$HOME/scripts/utils/pulseaudio-handler source mute",
+    "on-click": "$HOME/scripts/utils/pulseaudio-handler source toggle_mute",
     "on-scroll-up": "$HOME/scripts/utils/pulseaudio-handler source volume_up",
     "on-scroll-down": "$HOME/scripts/utils/pulseaudio-handler source volume_down"
   },
