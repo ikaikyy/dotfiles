@@ -22,7 +22,7 @@ else
   export EDITOR='nvim'
 fi
 
-alias zshconfig="nvim ~/.zshrc"
+alias dotfiles="nvim ~/git/dotfiles"
 
 export ANDROID_HOME=/home/kaiky/Android/Sdk
 
