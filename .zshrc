@@ -10,7 +10,7 @@ zstyle ':omz:update' frequency 7
 
 COMPLETION_WAITING_DOTS="%F{yellow}loading...%f"
 
-plugins=(archlinux colored-man-pages command-not-found docker dotenv git git-commit sudo tmux)
+plugins=(archlinux colored-man-pages command-not-found docker git git-commit sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,6 +25,4 @@ fi
 alias dotfiles="nvim ~/git/dotfiles"
 
 export ANDROID_HOME=/home/kaiky/Android/Sdk
-
-. /opt/asdf-vm/asdf.sh
 
