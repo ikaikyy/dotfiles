@@ -15,7 +15,7 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
   "nvim-treesitter/nvim-treesitter",
-  { "catppuccin/nvim", name = "catppuccin" },
+  { "catppuccin/nvim",          name = "catppuccin" },
   "rstacruz/vim-closer",
   "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
@@ -38,4 +38,8 @@ require("lazy").setup({
     branch = "harpoon2",
   },
   "nvim-lualine/lualine.nvim",
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+  },
+  { 'AndreM222/copilot-lualine' }
 })
