@@ -9,20 +9,22 @@ ask_for_confirmation() {
 
 remove_existing_symlink() {
   if [[ -L $1 ]]; then
-    rm $1
+    sudo rm $1
   fi
 }
 
 backup_if_exists() {
   if [[ -e $1 ]]; then
     if [[ ! -L $1 && -e $PWD/.bak ]]; then
-      rm -rf $PWD/.bak
+      sudo rm -rf $PWD/.bak
     fi
 
-    mkdir -p $PWD/.bak
-    mv $1 $PWD/.bak
+    sudo mkdir -p $PWD/.bak
+    sudo mv $1 $PWD/.bak
   fi
 }
+
+sudo -v
 
 ask_for_confirmation "Conflicting files from $HOME/.config will be backed up on in your current directory ($PWD/.bak) and symlinks will be removed. Continue?" || exit 1
 
@@ -43,9 +45,9 @@ while read line; do
   backup_if_exists $value
 
   if [[ $action == "copy" ]]; then
-    mkdir -p $value
-    cp -r $PWD/$key $value
+    sudo mkdir -p $value
+    sudo cp -r $PWD/$key $value
   else
-    ln -s $PWD/$key $value
+    sudo ln -s $PWD/$key $value
   fi
 done < setup.conf
