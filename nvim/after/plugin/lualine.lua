@@ -21,7 +21,7 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'filetype' },
+    lualine_x = { 'copilot', 'encoding', 'filetype' },
     lualine_y = { 'searchcount' },
     lualine_z = { 'location' }
   },
