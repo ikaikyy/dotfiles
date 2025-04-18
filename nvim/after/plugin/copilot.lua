@@ -39,3 +39,53 @@ require('copilot').setup({
   copilot_node_command = 'node',
   server_opts_overrides = {},
 })
+
+local chat = require('CopilotChat')
+local select = require('CopilotChat.select')
+
+chat.setup({
+  debug = false,
+  references_display = 'write',
+  selection = select.visual,
+  sticky = {
+    '#buffers',
+  },
+  mappings = {
+    reset = {
+      normal = '',
+      insert = '',
+    },
+    show_diff = {
+      full_diff = true,
+    },
+  },
+  prompts = {
+    Explain = {
+      mapping = '<leader>ae',
+      description = 'AI Explain',
+    },
+    Review = {
+      mapping = '<leader>ar',
+      description = 'AI Review',
+    },
+    Tests = {
+      mapping = '<leader>at',
+      description = 'AI Tests',
+    },
+    Fix = {
+      mapping = '<leader>af',
+      description = 'AI Fix',
+    },
+    Optimize = {
+      mapping = '<leader>ao',
+      description = 'AI Optimize',
+    },
+    Docs = {
+      mapping = '<leader>ad',
+      description = 'AI Documentation',
+    },
+  },
+})
+
+vim.api.nvim_set_keymap('n', '<leader>ac', '<cmd>lua require("CopilotChat").toggle()<CR>',
+  { noremap = true, silent = true })

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+filename=$(timedatectl show --property=RTCTimeUSec --value | awk 'OFS="-" {print $2, $3}')
+
+grimblast --freeze save area - | swappy -f - -o - | pngquant - --output ~/Pictures/Screenshots/$filename.png

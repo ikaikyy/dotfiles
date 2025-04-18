@@ -41,5 +41,6 @@ require("lazy").setup({
   {
     "CopilotC-Nvim/CopilotChat.nvim",
   },
-  { 'AndreM222/copilot-lualine' }
+  { 'AndreM222/copilot-lualine' },
+  { "eraserhd/parinfer-rust",   build = { "cargo build --release" } },
 })

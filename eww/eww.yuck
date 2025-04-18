@@ -1,0 +1,43 @@
+(defwindow statusbar
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :geometry (geometry
+              :x "0%"
+              :y "12px"
+              :width "2536px"
+              :height "48px"
+              :anchor "top center")
+  (box
+    :class "statusbar"
+    (box :class "left-box" :halign "start" (clock))
+    (box :class "center-box" :halign "center" (workspaces))
+    (box :class "right-box" :halign "end" (systray))))
+  
+(defwidget icon [icon]
+    (label :class "icon" :text icon))
+
+(defpoll time
+  :interval "1s"
+  `date +%H:%M:%S`)
+(defwidget clock []
+  (box
+    :spacing 8
+    :space-evenly false
+    (icon :icon "")
+    "${time}"))
+
+(deflisten current_workspace :initial "1" "bash ~/scripts/hyprland/listen-active-workspace")
+(defwidget workspaces []
+  (box
+    :spacing 8
+    :halign "center" 
+    (for workspace in '[{"id": 1, "icon":""}, {"id": 2, "icon": ""}, {"id": 3, "icon": "󰈹"}, {"id": 4, "icon": "󰓇"}, {"id": 5, "icon": ""}]'
+      (eventbox
+        :height 32
+        :width 32
+        :cursor "pointer"
+        :class "workspace-button ${workspace.id == current_workspace ? 'active' : ''}"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (icon :icon "${workspace.icon}")))))
+  

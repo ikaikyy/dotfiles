@@ -1,0 +1,51 @@
+#!/bin/bash
+
+possible_targets_regex="^(brightness|contrast)"
+possible_actions_regex="^(get|set)"
+
+if [[ ! $1 =~ $possible_actions_regex ]]; then
+  echo "Invalid action: $1"
+  exit 1
+fi
+
+action=$1
+
+if [[ ! $2 =~ $possible_targets_regex ]]; then
+  echo "Invalid target: $2"
+  exit 1
+fi
+
+target=$2
+
+if [[ $action == "set" && (-z $3 || $3 -lt 0 || $3 -gt 100) ]]; then
+  echo "Invalid value: $3"
+  exit 1
+fi
+
+value=$3
+
+get_vcp_feature_code() {
+  case $target in
+  "brightness")
+    echo 10
+    ;;
+  "contrast")
+    echo 12
+    ;;
+  *)
+    exit 1
+    ;;
+  esac
+}
+
+case $action in
+"get")
+  ddcutil ${action}vcp $(get_vcp_feature_code)
+  ;;
+"set")
+  ddcutil ${action}vcp $(get_vcp_feature_code) $value
+  ;;
+*)
+  exit 1
+  ;;
+esac
