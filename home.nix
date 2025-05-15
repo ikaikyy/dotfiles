@@ -44,20 +44,12 @@
     size = 24;
   };
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
-  };
-
   xdg.mimeApps.enable = true;
 
   imports = [
     ./modules/shell
     ./modules/hyprland
+    ./modules/gtk
     ./modules/kitty
     ./modules/git
     ./modules/rofi
