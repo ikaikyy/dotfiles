@@ -4,7 +4,7 @@
 
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake ~/dotfiles --use-remote-sudo";
-      upgrade = "nix flake update --flake ~/dotfiles && update --upgrade";
+      upgrade = "sudo nix flake update --flake ~/dotfiles && update --upgrade";
     };
 
     oh-my-zsh = {
