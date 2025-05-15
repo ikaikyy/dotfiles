@@ -56,7 +56,7 @@
     ./modules/clipboard
     ./modules/printscreen
     ./modules/neovim
-    ./modules/thunar
+    ./modules/nautilus
     ./modules/firefox
     ./modules/spotify
     ./modules/discord
