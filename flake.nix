@@ -18,19 +18,25 @@
   };
 
   outputs = { nixpkgs, home-manager, spicetify-nix, ... }@inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/desktop/hardware-configuration.nix
-        ./modules/system
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.kaiky = ./home.nix;
-        }
-      ];
+    nixosConfigurations = let
+      mkHost = hostName:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            (./hosts + "/${hostName}/hardware-configuration.nix")
+            ./modules/system
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs hostName; };
+              home-manager.users.kaiky = ./home.nix;
+            }
+          ];
+        };
+    in {
+      nixos-desktop = mkHost "desktop";
+      nixos-laptop = mkHost "laptop";
     };
   };
 }
