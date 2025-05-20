@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  boot.kernelParams = [ "quiet" "splash" ];
+
   services.greetd = {
     enable = true;
     settings = {
