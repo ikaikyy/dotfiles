@@ -81,11 +81,11 @@
         # Printscreen
         ", Print, exec, printscreen"
 
-        # Move focus with mod+ hjkl
-        "$mod, H, movefocus, l"
-        "$mod, J, movefocus, d"
-        "$mod, K, movefocus, u"
-        "$mod, L, movefocus, r"
+        # Move focus with alt + hjkl
+        "ALT, H, movefocus, l"
+        "ALT, J, movefocus, d"
+        "ALT, K, movefocus, u"
+        "ALT, L, movefocus, r"
 
         # Switch between workspaces
         "$mod, 1, workspace, 1"
@@ -120,6 +120,32 @@
 
       ];
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = { hide_cursor = true; };
+
+      background = [{
+        path = "screenshot";
+        blur_passes = 3;
+        blur_size = 8;
+      }];
+
+      input-field = [{
+        size = "386, 64";
+        position = "0, -386";
+        dots_center = true;
+        dots_spacing = 0.5;
+        inner_color = "rgb(49, 50, 68)";
+        outer_color = "rgb(203, 166, 247)";
+
+        font_family = "JetBrains Mono";
+        font_color = "rgb(205, 214, 244)";
+        placeholder_text = "<b>Password...</b>";
+      }];
     };
   };
 
