@@ -80,4 +80,12 @@
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
     };
   };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ "~/dotfiles/images/wallpapers/may-and-latios.jpg" ];
+      wallpaper = [ ",~/dotfiles/images/wallpapers/may-and-latios.jpg" ];
+    };
+  };
 }
