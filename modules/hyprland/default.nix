@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, hostName, ... }: {
   home.packages = with pkgs; [ qt6.full ];
 
   wayland.windowManager.hyprland = {
@@ -136,7 +136,7 @@
 
       input-field = [{
         size = "386, 64";
-        position = "0, -386";
+        position = if (hostName == "desktop") then "0, -386" else "0, -256";
         dots_center = true;
         dots_spacing = 0.5;
         inner_color = "rgb(49, 50, 68)";
