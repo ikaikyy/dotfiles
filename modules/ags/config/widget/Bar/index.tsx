@@ -24,9 +24,7 @@ export default function Bar() {
         <box spacing={24}>
           <Time />
         </box>
-        <box spacing={24}>
-          <HyprlandKeyboardLayout />
-        </box>
+        <box spacing={24}></box>
       </centerbox>
     </window>
   );

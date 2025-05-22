@@ -1,26 +1,41 @@
-import { Gtk } from "astal/gtk4";
+import { Gdk, Gtk, astalify } from "astal/gtk4";
 
-const iconSizes = {
-  small: 16,
-  medium: 24,
-  large: 32,
-  extra_large: 48,
-  huge: 64,
-};
+const GdkDisplay = Gdk.Display.get_default();
+
+if (!GdkDisplay) {
+  throw new Error("No Gdk Display found");
+}
+
+const IconTheme = Gtk.IconTheme.get_for_display(GdkDisplay);
 
 type IconProps = {
-  icon: string;
-  size?: keyof typeof iconSizes;
+  iconName: string;
+  size?: number;
 };
 
-export default function Icon({ icon, size = "small" }: IconProps) {
+export default function Icon({ iconName, size }: IconProps) {
+  const GtkIconPaintable = IconTheme.lookup_icon(
+    iconName,
+    null,
+    size || 16,
+    1,
+    null,
+    null,
+  );
+
+  const Image = astalify<Gtk.Image, Gtk.Image.ConstructorProps>(Gtk.Image);
+
   return (
-    <label
-      cssClasses={["icon", size]}
-      label={icon}
-      heightRequest={iconSizes[size]}
-      widthRequest={iconSizes[size]}
+    <box
+      cssClasses={["icon"]}
       valign={Gtk.Align.CENTER}
-    />
+      halign={Gtk.Align.START}
+    >
+      <Image
+        heightRequest={size}
+        widthRequest={size}
+        paintable={GtkIconPaintable}
+      />
+    </box>
   );
 }

@@ -26,7 +26,7 @@ $mantle: #181825;
 $crust: #11111b;
 
 * {
-  font-family: 'Hack Nerd Font Mono', monospace;
+  font-family: 'Hack Nerd Font', monospace;
 }
 
 window.Bar {
@@ -35,37 +35,92 @@ window.Bar {
   font-weight: bold;
 
   &>box {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0px 12px;
+  }
+}
+
+window.AppLauncher {
+  background: $base;
+  color: $text;
+  font-size: 18px;
+  font-weight: bold;
+
+  border-radius: 16px;
+  border: 3px solid $mauve;
+
+  & .main {
+    padding: 16px;
+
+    & .header {
+      & .icon {
+        border: 2px solid $mauve;
+        border-radius: 8px;
+
+        padding: 4px;
+      }
+
+      & .search-input {
+        background: $base;
+        border-radius: 8px;
+        border: 2px solid $mauve;
+        outline: none;
+        padding: 4px 12px;
+
+        color: $text;
+
+        &::placeholder {
+          color: $subtext1;
+        }
+      }
+    }
+
+    & .app-list {
+      & .app {
+        background: $base;
+        color: $text;
+        font-weight: bold;
+
+        border-radius: 8px;
+        border: 2px solid $mauve;
+
+        padding: 8px;
+
+        transition: all 0.2s ease-in-out;
+
+        &.selected,
+        &:hover {
+          background: $mauve;
+          color: $base;
+        }
+      }
+    }
   }
 }
 
 .icon {
-  color: $text;
+  & label {
+    color: $text;
+    margin: auto;
 
-  font-size: 16px;
+    &.small {
+      font-size: 16px;
+    }
 
-  padding: 0;
-  margin: 0;
+    &.medium {
+      font-size: 24px;
+    }
 
-  &.small {
-    transform: scale(1);
-  }
+    &.large {
+      font-size: 32px;
+    }
 
-  &.medium {
-    transform: scale(1.5);
-  }
+    &.extra_large {
+      font-size: 48px;
+    }
 
-  &.large {
-    transform: scale(2);
-  }
-
-  &.extra-large {
-    transform: scale(3);
-  }
-
-  &.huge {
-    transform: scale(4);
+    &.huge {
+      font-size: 64px;
+    }
   }
 }
 

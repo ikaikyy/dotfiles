@@ -28,10 +28,11 @@
 
     # CLI
     unzip
-    jdk17
+    jdk8
 
     android-studio
     androidenv.androidPkgs.platform-tools
+    brmodelo
     lmstudio
     dbeaver-bin
     prismlauncher
@@ -52,7 +53,6 @@
     ./modules/gtk
     ./modules/kitty
     ./modules/git
-    ./modules/rofi
     ./modules/clipboard
     ./modules/printscreen
     ./modules/neovim

@@ -75,7 +75,6 @@
         "$mod, Z, togglefloating, "
         "$mod, P, pseudo,"
         "$mod, R, togglesplit,"
-        "$mod, M, exec, pkill rofi || rofi -show drun"
         "$mod, L, exec, hyprlock"
 
         # Printscreen
