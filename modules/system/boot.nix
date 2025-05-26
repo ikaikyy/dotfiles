@@ -10,12 +10,35 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
 
-    loader.timeout = 0;
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+
+        extraEntries = ''
+          menuentry "Poweroff" {
+            poweroff
+          }
+
+          menuentry "Reboot" {
+            reboot
+          }
+        '';
+      };
+
+      efi.canTouchEfiVariables = true;
+    };
 
     plymouth = {
       enable = true;
+
+      extraConfig = ''
+        [Daemon]
+        DeviceScale=1
+      '';
+
       theme = "circuit";
       themePackages = with pkgs;
         [
