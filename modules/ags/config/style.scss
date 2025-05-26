@@ -75,52 +75,47 @@ window.AppLauncher {
     }
 
     & .app-list {
-      & .app {
-        background: $base;
-        color: $text;
-        font-weight: bold;
+      & button {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
 
-        border-radius: 8px;
-        border: 2px solid $mauve;
+        & .app {
+          background: $base;
+          color: $text;
+          font-weight: bold;
 
-        padding: 8px;
+          border-radius: 8px;
+          border: 2px solid $mauve;
 
-        transition: all 0.2s ease-in-out;
+          padding: 8px;
 
-        &.selected,
-        &:hover {
-          background: $mauve;
-          color: $base;
+          transition: all 0.2s ease-in-out;
+
+          &.selected,
+          &:hover {
+            background: $mauve;
+            color: $base;
+          }
         }
       }
     }
   }
 }
 
-.icon {
-  & label {
-    color: $text;
-    margin: auto;
+.app-launcher-icon-button {
+  border: 2px solid $mauve;
+  border-radius: 8px;
 
-    &.small {
-      font-size: 16px;
-    }
+  padding: 2px;
 
-    &.medium {
-      font-size: 24px;
-    }
+  &:hover {
+    background: rgba($pink, .4);
+  }
 
-    &.large {
-      font-size: 32px;
-    }
-
-    &.extra_large {
-      font-size: 48px;
-    }
-
-    &.huge {
-      font-size: 64px;
-    }
+  &.active {
+    background: $mauve;
   }
 }
 
@@ -134,11 +129,9 @@ window.AppLauncher {
 .hyprland-workspace-list {
   border-radius: 16px;
 
-  padding: 6px 8px;
 
   &>.hyprland-workspace {
-    background: $pink;
-    opacity: 0.6;
+    background: rgba($pink, .4);
 
     border-radius: 8px;
 
@@ -147,14 +140,13 @@ window.AppLauncher {
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      background: $pink;
+      background: $mauve;
 
       transform: scale(1.15);
     }
 
     &.active {
       background: $mauve;
-      opacity: 1;
 
       padding: 8px 12px;
 

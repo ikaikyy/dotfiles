@@ -8,7 +8,7 @@ if (!GdkDisplay) {
 
 const IconTheme = Gtk.IconTheme.get_for_display(GdkDisplay);
 
-type IconProps = {
+export type IconProps = {
   iconName: string;
   size?: number;
 };
