@@ -4,7 +4,7 @@
     settings = {
       default_session = {
         command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'dbus-run-session Hyprland'";
+          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session";
         user = "kaiky";
       };
     };
