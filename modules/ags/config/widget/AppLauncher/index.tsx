@@ -64,7 +64,7 @@ export default function AppLauncher() {
           <entry
             cssClasses={["search-input"]}
             placeholderText="Search for an app..."
-            onActivate={appLaunchController.launchSelectedApp}
+            onActivate={() => appLaunchController.launchSelectedApp()}
             text={appLaunchController.searchQuery()}
             onNotifyText={(self) => {
               if (self.text !== appLaunchController.searchQuery.get()) {
