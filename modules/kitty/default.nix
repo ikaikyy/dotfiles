@@ -30,6 +30,6 @@
       "alt+shift+l" = "neighboring_window right";
     };
 
-    themeFile = "Catppuccin-Mocha";
+    themeFile = "gruvbox-dark-hard";
   };
 }
