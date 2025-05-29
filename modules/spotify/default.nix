@@ -8,9 +8,10 @@ in {
 
     enabledExtensions = with spicePkgs.extensions; [ adblock ];
 
-    theme = spicePkgs.themes.catppuccin;
+    # onepunch is a gruvbox theme
+    theme = spicePkgs.themes.onepunch;
 
-    colorScheme = "mocha";
+    colorScheme = "dark";
   };
 
   xdg.desktopEntries.spotify = {
