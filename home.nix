@@ -28,11 +28,12 @@
 
     # CLI
     unzip
-    jdk8
+    jdk17
+    unrar
 
     android-studio
     androidenv.androidPkgs.platform-tools
-    brmodelo
+    azahar
     lmstudio
     dbeaver-bin
     prismlauncher
