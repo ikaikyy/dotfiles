@@ -1,11 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, hostName, ... }: {
   programs.kitty = {
     enable = true;
 
     font = {
       name = "JetBrainsMono NerdFont";
       package = pkgs.nerd-fonts.jetbrains-mono;
-      size = 14;
+      size = if hostName == "desktop" then 14 else 12;
     };
 
     settings = {
