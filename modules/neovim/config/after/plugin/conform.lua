@@ -21,6 +21,7 @@ conform.setup({
     kotlin = { "ktfmt" },
     bash = { "shfmt" },
     nix = { "nixfmt" },
+    python = { "black", "autopep8", "autoflake", "isort" },
   },
   format_on_save = {
     lsp_fallback = true,
