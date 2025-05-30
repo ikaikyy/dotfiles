@@ -1,9 +1,9 @@
 import { App, Astal, Gtk } from "astal/gtk4";
 
+import Icon from "../Icon";
 import Time from "./Time";
 import HyprlandKeyboardLayout from "./HyprlandKeyboardLayout";
 import HyprlandWorkspaces from "./HyprlandWorkspaces";
-import { AppLauncherIconButton } from "../AppLauncher";
 
 const BAR_WINDOW_NAME = "Bar";
 
@@ -25,7 +25,7 @@ export default function Bar() {
     >
       <centerbox valign={Gtk.Align.CENTER}>
         <box spacing={12}>
-          <AppLauncherIconButton />
+          <Icon iconName="nix-snowflake" size={32} />
           <HyprlandWorkspaces />
         </box>
         <box spacing={12}>

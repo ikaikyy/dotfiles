@@ -2,7 +2,6 @@ import { App, Astal, Gdk, Gtk, astalify } from "astal/gtk4";
 import { Variable } from "astal";
 
 import Icon from "../Icon";
-import IconButton from "../IconButton";
 import AppLauncherController from "./controller";
 
 export const APP_LAUNCHER_WINDOW_NAME = "AppLauncher";
@@ -128,23 +127,4 @@ export default function AppLauncher() {
       </box>
     </window>
   );
-}
-
-export function AppLauncherIconButton() {
-  return appLaunchController.isVisible().as((visible) => {
-    const cssClasses = ["app-launcher-icon-button"];
-
-    if (visible) {
-      cssClasses.push("active");
-    }
-
-    return (
-      <IconButton
-        iconName={"nix-snowflake"}
-        size={24}
-        onButtonPressed={() => appLaunchController.toggle()}
-        cssClasses={cssClasses}
-      />
-    );
-  });
 }

@@ -105,21 +105,6 @@ window.AppLauncher {
   }
 }
 
-.app-launcher-icon-button {
-  border: 2px solid $green;
-  border-radius: 4px;
-
-  padding: 2px;
-
-  &:hover {
-    background: rgba($green, .4);
-  }
-
-  &.active {
-    background: $green;
-  }
-}
-
 .hyprland-keyboard-layout {
   border-radius: 4px;
 
