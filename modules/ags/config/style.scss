@@ -112,7 +112,7 @@ window.AppLauncher {
   padding: 2px;
 
   &:hover {
-    background: rgba($light-green, .4);
+    background: rgba($green, .4);
   }
 
   &.active {
@@ -127,30 +127,31 @@ window.AppLauncher {
 }
 
 .hyprland-workspace-list {
-  border-radius: 8px;
+  &>box>.hyprland-workspace {
+    background: $green;
 
+    border-radius: 2px;
 
-  &>.hyprland-workspace {
-    background: rgba($light-green, .4);
-
-    border-radius: 4px;
-
-    padding: 8px;
+    padding: 4px;
 
     transition: all 0.2s ease-in-out;
+
+    &.empty {
+      background: rgba($green, .2);
+    }
 
     &:hover {
       background: $green;
 
-      transform: scale(1.2);
+      padding: 6px;
     }
 
     &.active {
       background: $green;
 
-      padding: 8px 12px;
+      border-radius: 4px;
 
-      transform: scale(1.2);
+      padding: 8px;
     }
   }
 }
