@@ -46,7 +46,7 @@ export default function HyprlandWorkspaces() {
       spacing={8}
     >
       {activeWorkspace().as(() => {
-        const workspaces = Array.from({ length: 6 }, (_, index) => (
+        const workspaces = Array.from({ length: 9 }, (_, index) => (
           <Workspace workspaceID={index + 1} />
         ));
 
