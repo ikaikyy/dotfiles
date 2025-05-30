@@ -3,7 +3,6 @@ import { Gtk } from "astal/gtk4";
 import { exec } from "astal/process";
 
 import Hyprland from "gi://AstalHyprland";
-import Icon from "../Icon";
 
 function getFormattedKeyboardLayout(layout: string) {
   const layoutMap: Record<string, string> = {
@@ -35,7 +34,6 @@ export default function HyprlandKeyboardLayout() {
       spacing={8}
       valign={Gtk.Align.CENTER}
     >
-      <Icon icon="󰌌" size="large" />
       <label
         valign={Gtk.Align.CENTER}
         label={keyboardLayout().as((layout) =>
