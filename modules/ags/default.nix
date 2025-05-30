@@ -17,5 +17,6 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [ "ags run --gtk4" ];
     bind = [ "$mod, M, exec, ags request 'toggle-app-launcher'" ];
+    layerrule = [ "blur, AppLauncher" "blur, Bar" ];
   };
 }

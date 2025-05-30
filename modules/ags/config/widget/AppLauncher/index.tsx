@@ -45,7 +45,9 @@ export default function AppLauncher() {
     <window
       application={App}
       name={APP_LAUNCHER_WINDOW_NAME}
-      cssClasses={["AppLauncher"]}
+      namespace={APP_LAUNCHER_WINDOW_NAME}
+      layer={Astal.Layer.OVERLAY}
+      cssClasses={[APP_LAUNCHER_WINDOW_NAME]}
       heightRequest={600}
       widthRequest={800}
       monitor={0}

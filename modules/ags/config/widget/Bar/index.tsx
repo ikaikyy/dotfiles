@@ -5,14 +5,19 @@ import HyprlandKeyboardLayout from "./HyprlandKeyboardLayout";
 import HyprlandWorkspaces from "./HyprlandWorkspaces";
 import { AppLauncherIconButton } from "../AppLauncher";
 
+const BAR_WINDOW_NAME = "Bar";
+
 export default function Bar() {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
     <window
+      name={BAR_WINDOW_NAME}
+      namespace={BAR_WINDOW_NAME}
+      layer={Astal.Layer.TOP}
       visible={true}
       heightRequest={48}
-      cssClasses={["Bar"]}
+      cssClasses={[BAR_WINDOW_NAME]}
       monitor={0}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}

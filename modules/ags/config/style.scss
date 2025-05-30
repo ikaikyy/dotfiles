@@ -1,37 +1,40 @@
-$rosewater: #f5e0dc;
-$flamingo: #f2cdcd;
-$pink: #f5c2e7;
-$mauve: #cba6f7;
-$red: #f38ba8;
-$maroon: #eba0ac;
-$peach: #fab387;
-$yellow: #f9e2af;
-$green: #a6e3a1;
-$teal: #94e2d5;
-$sky: #89dceb;
-$sapphire: #74c7ec;
-$blue: #89b4fa;
-$lavender: #b4befe;
-$text: #cdd6f4;
-$subtext1: #bac2de;
-$subtext0: #a6adc8;
-$overlay2: #9399b2;
-$overlay1: #7f849c;
-$overlay0: #6c7086;
-$surface2: #585b70;
-$surface1: #45475a;
-$surface0: #313244;
-$base: #1e1e2e;
-$mantle: #181825;
-$crust: #11111b;
+$red: #cc241d;
+$green: #98971a;
+$yellow: #d79921;
+$blue: #458588;
+$purple: #b16286;
+$aqua: #689d6a;
+$orange: #d65d0e;
+$gray: #928374;
+
+$light-red: #fb4934;
+$light-green: #b8bb26;
+$light-yellow: #fabd2f;
+$light-blue: #83a598;
+$light-purple: #d3869b;
+$light-aqua: #8ec07c;
+$light-orange: #fe8019;
+$light-gray: #a89984;
+
+$bg0: #1d2021;
+$bg1: #3c3836;
+$bg2: #504945;
+$bg3: #665c54;
+$bg4: #7c6f64;
+
+$fg0: #fbf1c7;
+$fg1: #ebdbb2;
+$fg2: #d5c4a1;
+$fg3: #bdae93;
+$fg4: #a89984;
 
 * {
   font-family: 'Hack Nerd Font', monospace;
 }
 
 window.Bar {
-  background: $base;
-  color: $text;
+  background: rgba($bg0, 0.8);
+  color: $fg1;
   font-weight: bold;
 
   &>box {
@@ -40,36 +43,36 @@ window.Bar {
 }
 
 window.AppLauncher {
-  background: $base;
-  color: $text;
+  background: rgba($bg0, 0.8);
+  color: $fg1;
   font-size: 18px;
   font-weight: bold;
 
-  border-radius: 16px;
-  border: 3px solid $mauve;
+  border-radius: 8px;
+  border: 2px solid $green;
 
   & .main {
-    padding: 16px;
+    padding: 8px;
 
     & .header {
       & .icon {
-        border: 2px solid $mauve;
-        border-radius: 8px;
+        border: 2px solid $green;
+        border-radius: 4px;
 
         padding: 4px;
       }
 
       & .search-input {
-        background: $base;
-        border-radius: 8px;
-        border: 2px solid $mauve;
+        background: transparent;
+        border-radius: 4px;
+        border: 2px solid $green;
         outline: none;
         padding: 4px 12px;
 
-        color: $text;
+        color: $fg1;
 
         &::placeholder {
-          color: $subtext1;
+          color: $fg2;
         }
       }
     }
@@ -82,12 +85,11 @@ window.AppLauncher {
         padding: 0;
 
         & .app {
-          background: $base;
-          color: $text;
+          color: $fg1;
           font-weight: bold;
 
-          border-radius: 8px;
-          border: 2px solid $mauve;
+          border-radius: 4px;
+          border: 2px solid $green;
 
           padding: 8px;
 
@@ -95,8 +97,8 @@ window.AppLauncher {
 
           &.selected,
           &:hover {
-            background: $mauve;
-            color: $base;
+            background: $green;
+            color: $bg0;
           }
         }
       }
@@ -105,52 +107,52 @@ window.AppLauncher {
 }
 
 .app-launcher-icon-button {
-  border: 2px solid $mauve;
-  border-radius: 8px;
+  border: 2px solid $green;
+  border-radius: 4px;
 
   padding: 2px;
 
   &:hover {
-    background: rgba($pink, .4);
+    background: rgba($light-green, .4);
   }
 
   &.active {
-    background: $mauve;
+    background: $green;
   }
 }
 
 .hyprland-keyboard-layout {
-  background: $surface0;
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 4px;
 
   font-size: 20px;
 }
 
 .hyprland-workspace-list {
-  border-radius: 16px;
+  border-radius: 8px;
 
 
   &>.hyprland-workspace {
-    background: rgba($pink, .4);
+    background: rgba($light-green, .4);
 
-    border-radius: 8px;
+    border-radius: 4px;
 
     padding: 8px;
 
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      background: $mauve;
+      background: $green;
 
-      transform: scale(1.15);
+      transform: scale(1.2);
     }
 
     &.active {
-      background: $mauve;
+      background: $green;
 
       padding: 8px 12px;
 
-      transform: scale(1.15);
+      transform: scale(1.2);
     }
   }
 }
