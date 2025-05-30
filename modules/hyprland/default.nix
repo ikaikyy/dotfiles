@@ -27,7 +27,9 @@
 
       general = {
         gaps_out = 12;
-        border_size = 0;
+        border_size = 2;
+        "col.active_border" = "rgba(98971aff)";
+        "col.inactive_border" = "rgba(1d2021ff)";
 
         layout = "dwindle";
 
@@ -35,13 +37,21 @@
       };
 
       decoration = {
-        rounding = 12;
+        rounding = 8;
 
         blur = {
           enabled = true;
+
           size = 5;
-          passes = 2;
+          passes = 3;
+
+          ignore_opacity = true;
+          popups = true;
+          xray = true;
+          new_optimizations = true;
         };
+
+        shadow = { enabled = true; };
 
       };
 
