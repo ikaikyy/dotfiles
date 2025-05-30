@@ -8,7 +8,12 @@
       size = 14;
     };
 
-    settings = { enabled_layouts = "splits"; };
+    settings = {
+      enabled_layouts = "splits";
+
+      background_opacity = 0.8;
+      background_blur = 1;
+    };
 
     keybindings = {
       # Tabs
