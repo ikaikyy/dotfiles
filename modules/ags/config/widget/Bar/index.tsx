@@ -16,7 +16,7 @@ export default function Bar() {
       namespace={BAR_WINDOW_NAME}
       layer={Astal.Layer.TOP}
       visible={true}
-      heightRequest={48}
+      heightRequest={56}
       cssClasses={[BAR_WINDOW_NAME]}
       monitor={0}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
@@ -25,7 +25,7 @@ export default function Bar() {
     >
       <centerbox valign={Gtk.Align.CENTER}>
         <box spacing={12}>
-          <Icon iconName="nix-snowflake" size={32} />
+          <Icon iconName="nix-snowflake" size={24} />
           <HyprlandWorkspaces />
         </box>
         <box spacing={12}>
