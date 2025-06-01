@@ -4,6 +4,7 @@ import Icon from "../Icon";
 import Time from "./Time";
 import HyprlandKeyboardLayout from "./HyprlandKeyboardLayout";
 import HyprlandWorkspaces from "./HyprlandWorkspaces";
+import SystemTray from "./SystemTray";
 
 const BAR_WINDOW_NAME = "Bar";
 
@@ -28,11 +29,11 @@ export default function Bar() {
           <Icon iconName="nix-snowflake" size={24} />
           <HyprlandWorkspaces />
         </box>
-        <box spacing={12}>
+        <box spacing={12} valign={Gtk.Align.CENTER}>
           <Time />
         </box>
         <box spacing={12}>
-          <HyprlandKeyboardLayout />
+          <SystemTray />
         </box>
       </centerbox>
     </window>

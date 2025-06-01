@@ -47,7 +47,7 @@
 
           ignore_opacity = true;
           popups = true;
-          xray = true;
+          popups_ignorealpha = 0;
           new_optimizations = true;
         };
 

@@ -30,6 +30,7 @@ $fg4: #a89984;
 
 * {
   font-family: 'Hack Nerd Font', monospace;
+  font-size: 14px;
 }
 
 window.Bar {
@@ -48,11 +49,58 @@ window.Bar {
     padding: 6px;
   }
 
+  .system-tray {
+    background: rgba($fg0, .05);
+    border-radius: 20px;
+
+    .system-tray-item>button {
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+
+      min-height: 0;
+      padding: 8px;
+
+      transition: all 0.2s ease-in-out;
+    }
+
+    .system-tray-item>button:hover,
+    .system-tray-item.active>button {
+      background: rgba($fg0, .1);
+    }
+
+    .system-tray-item-popover {
+      &>contents {
+        background: rgba($bg0, 0.8);
+        border: 2px solid $green;
+        border-radius: 16px;
+
+        padding: 8px;
+      }
+
+      &>arrow {
+        background: $green;
+        border: 2px solid $green;
+      }
+
+      modelbutton {
+        border-radius: 8px;
+
+        &:hover {
+          background: rgba($fg0, .1);
+        }
+      }
+    }
+  }
+
   .time {
     background: rgba($fg0, .05);
     border-radius: 20px;
 
-    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 0.8;
+
+    padding: 11px 14px;
   }
 
   .hyprland-keyboard-layout {

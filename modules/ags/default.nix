@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ inputs, config, pkgs, lib, ... }: {
   imports = [ inputs.ags.homeManagerModules.default ];
 
   home.packages = with pkgs; [ dart-sass ];
@@ -11,12 +11,17 @@
     extraPackages = [
       inputs.ags.packages.${pkgs.system}.apps
       inputs.ags.packages.${pkgs.system}.hyprland
+      inputs.ags.packages.${pkgs.system}.tray
     ];
   };
 
   wayland.windowManager.hyprland.settings = {
     exec-once = [ "ags run --gtk4" ];
     bind = [ "$mod, M, exec, ags request 'toggle-app-launcher'" ];
-    layerrule = [ "blur, AppLauncher" "blur, Bar" ];
+    layerrule = builtins.concatMap
+      (s: [ "blur, ${s}" "blurpopups, ${s}" "ignorezero, ${s}" ]) [
+        "AppLauncher"
+        "Bar"
+      ];
   };
 }
