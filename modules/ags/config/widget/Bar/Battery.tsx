@@ -7,7 +7,7 @@ const battery = AstalBattery.get_default();
 
 export default function Battery() {
   if (!battery.isPresent) {
-    return null;
+    return <></>;
   }
 
   return bind(battery, "batteryIconName").as((batteryIconName) => (
