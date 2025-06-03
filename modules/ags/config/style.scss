@@ -106,7 +106,7 @@ window.Bar {
     font-size: 14px;
     line-height: 0.8;
 
-    padding: 11px 14px;
+    padding: 9px 12px;
   }
 
   .hyprland-keyboard-layout {
@@ -114,14 +114,14 @@ window.Bar {
     border-radius: 20px;
     font-size: 14px;
 
-    padding: 10px 14px;
+    padding: 8px 12px;
   }
 
   .hyprland-workspace-list {
     background: rgba($fg0, .05);
     border-radius: 20px;
 
-    padding: 10px 14px;
+    padding: 8px 12px;
 
     &>box>.hyprland-workspace {
       background: $green;
