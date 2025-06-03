@@ -49,6 +49,12 @@ window.Bar {
     padding: 6px;
   }
 
+  .battery {
+    background: rgba($fg0, .05);
+    border-radius: 20px;
+    padding: 8px;
+  }
+
   .system-tray {
     background: rgba($fg0, .05);
     border-radius: 20px;

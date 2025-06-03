@@ -2,7 +2,7 @@ import { App, Astal, Gtk } from "astal/gtk4";
 
 import Icon from "../Icon";
 import Time from "./Time";
-import HyprlandKeyboardLayout from "./HyprlandKeyboardLayout";
+import Battery from "./Battery";
 import HyprlandWorkspaces from "./HyprlandWorkspaces";
 import SystemTray from "./SystemTray";
 
@@ -34,6 +34,7 @@ export default function Bar() {
         </box>
         <box spacing={12}>
           <SystemTray />
+          <Battery />
         </box>
       </centerbox>
     </window>

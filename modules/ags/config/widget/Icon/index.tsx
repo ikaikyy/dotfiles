@@ -1,3 +1,4 @@
+import { bind, Binding, Variable } from "astal";
 import { Gdk, Gtk, astalify } from "astal/gtk4";
 
 const GdkDisplay = Gdk.Display.get_default();
@@ -9,18 +10,17 @@ if (!GdkDisplay) {
 const IconTheme = Gtk.IconTheme.get_for_display(GdkDisplay);
 
 export type IconProps = {
-  iconName: string;
+  iconName: string | Binding<string>;
   size?: number;
 };
 
 export default function Icon({ iconName, size }: IconProps) {
-  const GtkIconPaintable = IconTheme.lookup_icon(
-    iconName,
-    null,
-    size || 16,
-    1,
-    null,
-    null,
+  if (typeof iconName === "string") {
+    iconName = Variable(iconName)();
+  }
+
+  const GtkIconPaintable = iconName.as((iconName) =>
+    IconTheme.lookup_icon(iconName, null, size || 16, 1, null, null),
   );
 
   const Image = astalify<Gtk.Image, Gtk.Image.ConstructorProps>(Gtk.Image);
