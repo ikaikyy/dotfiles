@@ -5,6 +5,7 @@ import Time from "./Time";
 import Battery from "./Battery";
 import HyprlandWorkspaces from "./HyprlandWorkspaces";
 import SystemTray from "./SystemTray";
+import PowerMenuIconButton from "./PowerMenuIconButton";
 
 const BAR_WINDOW_NAME = "Bar";
 
@@ -35,6 +36,7 @@ export default function Bar() {
         <box spacing={12}>
           <SystemTray />
           <Battery />
+          <PowerMenuIconButton />
         </box>
       </centerbox>
     </window>

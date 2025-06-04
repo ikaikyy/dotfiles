@@ -22,6 +22,7 @@
     layerrule = builtins.concatMap
       (s: [ "blur, ${s}" "blurpopups, ${s}" "ignorezero, ${s}" ]) [
         "AppLauncher"
+        "PowerMenu"
         "Bar"
       ];
   };

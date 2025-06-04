@@ -1,5 +1,6 @@
 import { bind, Binding, Variable } from "astal";
 import { Gdk, Gtk, astalify } from "astal/gtk4";
+import { BoxProps } from "astal/gtk4/widget";
 
 const GdkDisplay = Gdk.Display.get_default();
 
@@ -9,12 +10,12 @@ if (!GdkDisplay) {
 
 const IconTheme = Gtk.IconTheme.get_for_display(GdkDisplay);
 
-export type IconProps = {
+export type IconProps = BoxProps & {
   iconName: string | Binding<string>;
   size?: number;
 };
 
-export default function Icon({ iconName, size }: IconProps) {
+export default function Icon({ iconName, size, ...props }: IconProps) {
   if (typeof iconName === "string") {
     iconName = Variable(iconName)();
   }
@@ -27,7 +28,10 @@ export default function Icon({ iconName, size }: IconProps) {
 
   return (
     <box
-      cssClasses={["icon"]}
+      {...props}
+      setup={(self) => {
+        self.add_css_class("icon");
+      }}
       valign={Gtk.Align.CENTER}
       halign={Gtk.Align.START}
     >

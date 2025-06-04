@@ -49,6 +49,20 @@ window.Bar {
     padding: 6px;
   }
 
+  .power-menu-icon-button {
+    background: rgba($fg0, .05);
+    border-radius: 50%;
+
+    padding: 8px;
+
+    transition: all 0.2s ease-in-out;
+
+    &.active,
+    &:hover {
+      background: rgba($fg0, .1);
+    }
+  }
+
   .battery {
     background: rgba($fg0, .05);
     border-radius: 20px;
@@ -209,6 +223,63 @@ window.AppLauncher {
           }
         }
       }
+    }
+  }
+}
+
+window.PowerMenu {
+  background: rgba($bg0, 0.8);
+
+  .power-menu-action {
+    background: rgba($fg0, .05);
+    border-radius: 8px;
+
+    padding: 24px;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: rgba($fg0, .1);
+
+      transform: scale(1.05);
+    }
+  }
+
+  .power-menu-close-action {
+    @extend .power-menu-action;
+    background: rgba($red, .2);
+
+    &:hover {
+      background: rgba($red, .4);
+    }
+  }
+
+  .power-menu-confirmation-icon {
+    background: rgba($fg0, .05);
+    border-radius: 8px;
+
+    padding: 48px;
+  }
+
+  .power-menu-cancel-action {
+    @extend .power-menu-action;
+    background: rgba($red, .2);
+
+    padding: 0 24px;
+
+    &:hover {
+      background: rgba($red, .4);
+    }
+  }
+
+  .power-menu-confirm-action {
+    @extend .power-menu-action;
+    background: rgba($green, .2);
+
+    padding: 0 24px;
+
+    &:hover {
+      background: rgba($green, .4);
     }
   }
 }
