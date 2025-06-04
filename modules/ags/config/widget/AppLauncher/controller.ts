@@ -3,6 +3,8 @@ import { Variable } from "astal";
 
 import Apps from "gi://AstalApps";
 
+export const APP_LAUNCHER_WINDOW_NAME = "AppLauncher";
+
 export default class AppLauncherController {
   readonly searchQuery: Variable<string> = new Variable("");
   readonly selectedIndex: Variable<number> = new Variable(0);
@@ -63,7 +65,7 @@ export default class AppLauncherController {
   }
 
   show() {
-    const window = App.get_window("AppLauncher");
+    const window = App.get_window(APP_LAUNCHER_WINDOW_NAME);
 
     if (window) {
       this.apps.reload();
@@ -73,7 +75,7 @@ export default class AppLauncherController {
   }
 
   hide() {
-    const window = App.get_window("AppLauncher");
+    const window = App.get_window(APP_LAUNCHER_WINDOW_NAME);
 
     if (window) {
       this.searchQuery.set("");

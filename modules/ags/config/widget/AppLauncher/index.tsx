@@ -2,14 +2,11 @@ import { App, Astal, Gdk, Gtk, astalify } from "astal/gtk4";
 import { Variable } from "astal";
 
 import Icon from "../Icon";
-import AppLauncherController from "./controller";
-
-export const APP_LAUNCHER_WINDOW_NAME = "AppLauncher";
+import AppLauncherController, { APP_LAUNCHER_WINDOW_NAME } from "./controller";
 
 const ScrolledWindow = astalify(Gtk.ScrolledWindow);
 
 export const appLaunchController = new AppLauncherController();
-
 function onKeyPressed(_, key: number) {
   switch (key) {
     case Gdk.KEY_Escape:
