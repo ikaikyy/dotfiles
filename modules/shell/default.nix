@@ -6,16 +6,16 @@
 
     shellAliases = {
       # Desktop
-      update-desktop =
-        "sudo nixos-rebuild switch --flake ~/dotfiles#nixos-desktop --use-remote-sudo";
-      upgrade-desktop =
-        "sudo nix flake update --flake ~/dotfiles && update-desktop --upgrade";
+      update-desktop = ''
+        sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#nixos-desktop" --use-remote-sudo'';
+      upgrade-desktop = ''
+        sudo nix flake update --flake "$HOME/dotfiles" && update-desktop --upgrade'';
 
       # Laptop
-      update-laptop =
-        "sudo nixos-rebuild switch --flake ~/dotfiles#nixos-laptop --use-remote-sudo";
-      upgrade-laptop =
-        "sudo nix flake update --flake ~/dotfiles && update-laptop --upgrade";
+      update-laptop = ''
+        sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#nixos-laptop" --use-remote-sudo'';
+      upgrade-laptop = ''
+        sudo nix flake update --flake "$HOME/dotfiles" && update-laptop --upgrade'';
     };
 
     initContent = ''
