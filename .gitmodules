@@ -1,0 +1,3 @@
+[submodule "modules/ags/config"]
+	path = modules/ags/config
+	url = git@github.com:ikaikyy/ags.git
