@@ -30,6 +30,7 @@
     unzip
     jdk17
     unrar
+    heroku
 
     android-studio
     androidenv.androidPkgs.platform-tools
