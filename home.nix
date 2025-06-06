@@ -38,6 +38,7 @@
     lmstudio
     dbeaver-bin
     prismlauncher
+    smtp4dev
   ];
 
   home.pointerCursor = {
