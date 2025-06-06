@@ -64,5 +64,6 @@
     ./modules/spotify
     ./modules/discord
     ./modules/ags
+    ./modules/retroarch
   ];
 }
