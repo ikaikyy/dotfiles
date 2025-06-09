@@ -34,7 +34,6 @@
 
     android-studio
     androidenv.androidPkgs.platform-tools
-    azahar
     lmstudio
     dbeaver-bin
     prismlauncher
