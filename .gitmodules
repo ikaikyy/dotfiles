@@ -1,6 +1,0 @@
-[submodule "modules/ags/config"]
-	path = modules/ags/config
-	url = git@github.com:ikaikyy/ags.git
-[submodule "modules/neovim/config"]
-	path = modules/neovim/config
-	url = git@github.com:ikaikyy/neovim.git
