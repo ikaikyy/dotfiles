@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config = { allowUnfree = true; };
+  nixpkgs.config = {
+    allowBroken = true;
+    allowUnfree = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -84,6 +87,7 @@
   };
 
   services.upower.enable = true;
+  services.flatpak.enable = true;
 
   programs.hyprland = {
     enable = true;

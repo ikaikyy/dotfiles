@@ -1,19 +1,37 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [
-    nodePackages.nodejs
-    go
-    cargo
-    gcc
-
-    ripgrep
-  ];
-
-  xdg.configFile.nvim.source = ./config;
-
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
-    defaultEditor = true;
+
+    dependencies = { ripgrep.enable = true; };
+
+    opts = {
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      relativenumber = true;
+      clipboard = "unnamedplus";
+      cmdheight = 0;
+      termguicolors = true;
+      signcolumn = "yes";
+    };
+
+    globals = {
+      loaded_netrw = 1;
+      loaded_netrwPlugin = 1;
+      mapleader = " ";
+    };
+
+    colorschemes.gruvbox = {
+      enable = true;
+      settings = {
+        contrast = "hard";
+        transparent_mode = true;
+      };
+    };
+    colorscheme = "gruvbox";
   };
 
   home.sessionVariables.EDITOR = "nvim";
+
+  imports = [ ./auto-cmds.nix ./keymaps.nix ./plugins.nix ];
 }

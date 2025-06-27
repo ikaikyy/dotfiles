@@ -28,16 +28,15 @@
 
     # CLI
     unzip
-    jdk17
     unrar
     heroku
+    graalvmPackages.graalvm-ce
 
     android-studio
-    androidenv.androidPkgs.platform-tools
-    lmstudio
-    dbeaver-bin
     prismlauncher
     smtp4dev
+    qbittorrent
+    jetbrains.datagrip
   ];
 
   home.pointerCursor = {
@@ -50,6 +49,7 @@
   xdg.mimeApps.enable = true;
 
   imports = [
+    inputs.nixvim.homeModules.nixvim
     ./modules/shell
     ./modules/hyprland
     ./modules/gtk
