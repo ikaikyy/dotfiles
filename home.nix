@@ -31,6 +31,7 @@
     unrar
     heroku
     graalvmPackages.graalvm-ce
+    mysql80
 
     android-studio
     prismlauncher
