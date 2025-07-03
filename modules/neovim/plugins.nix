@@ -14,11 +14,14 @@
         gopls.enable = true;
         html.enable = true;
         htmx.enable = true;
+        intelephense = {
+          enable = true;
+          package = pkgs.intelephense;
+        };
         jsonls.enable = true;
         lua_ls.enable = true;
         markdown_oxide.enable = true;
         nil_ls.enable = true;
-        phan.enable = true;
         pylsp.enable = true;
         rust_analyzer = {
           enable = true;
@@ -123,6 +126,10 @@
       sources = {
         formatting = {
           black.enable = true;
+          blade_formatter = {
+            enable = true;
+            package = pkgs.blade-formatter;
+          };
           clang_format.enable = true;
           nixfmt.enable = true;
           prettierd = {
