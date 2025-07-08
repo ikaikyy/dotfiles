@@ -6,6 +6,10 @@
 
 -- This includes what packages to download, which LSPs to enable, etc.
 
+-- NOTE: These 2 need to be set up before any plugins are loaded.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- First, set up basic vim options
 require('config.options')
 
@@ -18,5 +22,5 @@ require('config.autocmds')
 -- Load colorscheme
 require('config.colorscheme')
 
--- Set up plugins
+-- Set up plugins with lze
 require('config.plugins')

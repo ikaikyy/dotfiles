@@ -47,7 +47,7 @@ local default_config = {
 }
 
 -- TypeScript/JavaScript
-if has_category('lspsAndRuntimeDeps') then
+if has_category('typescript') then
   lspconfig.ts_ls.setup(default_config)
   
   -- ESLint
@@ -59,7 +59,7 @@ if has_category('lspsAndRuntimeDeps') then
 end
 
 -- Python
-if has_category('lspsAndRuntimeDeps') then
+if has_category('python') then
   lspconfig.pylsp.setup(vim.tbl_extend('force', default_config, {
     settings = {
       pylsp = {
@@ -87,12 +87,12 @@ if has_category('lspsAndRuntimeDeps') then
 end
 
 -- PHP
-if has_category('lspsAndRuntimeDeps') then
+if has_category('php') then
   lspconfig.intelephense.setup(default_config)
 end
 
 -- Rust
-if has_category('lspsAndRuntimeDeps') then
+if has_category('rust') then
   lspconfig.rust_analyzer.setup(vim.tbl_extend('force', default_config, {
     settings = {
       ["rust-analyzer"] = {
@@ -112,14 +112,14 @@ if has_category('lspsAndRuntimeDeps') then
 end
 
 -- HTML, CSS, JSON
-if has_category('lspsAndRuntimeDeps') then
+if has_category('web') then
   lspconfig.html.setup(default_config)
   lspconfig.cssls.setup(default_config)
   lspconfig.jsonls.setup(default_config)
 end
 
 -- Lua
-if has_category('lspsAndRuntimeDeps') then
+if has_category('lua') then
   lspconfig.lua_ls.setup(vim.tbl_extend('force', default_config, {
     settings = {
       Lua = {
@@ -142,27 +142,27 @@ if has_category('lspsAndRuntimeDeps') then
 end
 
 -- Nix
-if has_category('lspsAndRuntimeDeps') then
+if has_category('nix') then
   lspconfig.nil_ls.setup(default_config)
 end
 
 -- Go
-if has_category('lspsAndRuntimeDeps') then
+if has_category('go') then
   lspconfig.gopls.setup(default_config)
 end
 
 -- C/C++
-if has_category('lspsAndRuntimeDeps') then
+if has_category('c') then
   lspconfig.clangd.setup(default_config)
 end
 
 -- HTMX
-if has_category('lspsAndRuntimeDeps') then
+if has_category('web') then
   lspconfig.htmx.setup(default_config)
 end
 
 -- Markdown
-if has_category('lspsAndRuntimeDeps') then
+if has_category('web') then
   lspconfig.markdown_oxide.setup(default_config)
 end
 

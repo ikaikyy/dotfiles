@@ -1,4 +1,4 @@
--- Main plugins configuration
+-- Main plugins configuration with lze
 -- This is where we set up all our plugins with proper lazy loading
 
 -- Check if nixCats categories are available
@@ -9,60 +9,66 @@ local function has_category(category)
   return true -- fallback to true if nixCats is not available
 end
 
--- Only proceed if we have the startupPlugins category
-if not has_category('startupPlugins') then
+-- Only proceed if we have the startup plugins
+if not has_category('general') then
   return
 end
 
--- Set up lazy.nvim if available
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Set up gruvbox colorscheme first
+vim.cmd.colorscheme('gruvbox')
 
--- Configure lazy.nvim
-require("lazy").setup({
-  -- Colorscheme
+-- Configure lze (the nixCats lazy loader)
+require('lze').load {
+  -- LSP Configuration
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function()
-      require("config.colorscheme")
+    "nvim-lspconfig",
+    enabled = has_category('general') or false,
+    event = { "BufReadPre", "BufNewFile" },
+    after = function()
+      require("plugins.lsp")
     end,
   },
 
-  -- Core plugins that should load early
+  -- Completion
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = false,
+    "nvim-cmp",
+    enabled = has_category('general') or false,
+    event = "InsertEnter",
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("cmp-nvim-lsp")
+      vim.cmd.packadd("cmp-buffer")
+      vim.cmd.packadd("cmp-path")
+      vim.cmd.packadd("luasnip")
+      vim.cmd.packadd("cmp_luasnip")
+      vim.cmd.packadd("friendly-snippets")
+    end,
+    after = function()
+      require("plugins.cmp")
+    end,
   },
 
   -- File explorer
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-tree.lua",
+    enabled = has_category('general') or false,
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus" },
     keys = {
       { "<leader>pv", "<cmd>NvimTreeToggle<cr>", desc = "Toggle file explorer" },
     },
-    config = function()
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("nvim-web-devicons")
+    end,
+    after = function()
       require("plugins.nvim-tree")
     end,
-    enabled = has_category('navigation'),
   },
 
   -- Telescope
   {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "telescope.nvim",
+    enabled = has_category('general') or false,
     cmd = "Telescope",
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
@@ -70,148 +76,125 @@ require("lazy").setup({
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
     },
-    config = function()
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("plenary.nvim")
+    end,
+    after = function()
       require("plugins.telescope")
     end,
-    enabled = has_category('navigation'),
   },
 
   -- Treesitter
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    "nvim-treesitter",
+    enabled = has_category('general') or false,
     event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    config = function()
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("nvim-treesitter-textobjects")
+    end,
+    after = function()
       require("plugins.treesitter")
     end,
-    enabled = has_category('startupPlugins'),
-  },
-
-  -- LSP Configuration
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-    },
-    config = function()
-      require("plugins.lsp")
-    end,
-    enabled = has_category('lspsAndRuntimeDeps'),
-  },
-
-  -- Completion
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("plugins.cmp")
-    end,
-    enabled = has_category('completion'),
   },
 
   -- Formatting
   {
-    "stevearc/conform.nvim",
+    "conform.nvim",
+    enabled = has_category('format') or false,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
-    config = function()
+    keys = {
+      { "<leader>FF", desc = "Format file" },
+    },
+    after = function()
       require("plugins.conform")
     end,
-    enabled = has_category('format'),
   },
 
   -- Linting
   {
-    "mfussenegger/nvim-lint",
+    "nvim-lint",
+    enabled = has_category('format') or false,
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
+    after = function()
       require("plugins.lint")
     end,
-    enabled = has_category('format'),
   },
 
   -- Status line
   {
-    "nvim-lualine/lualine.nvim",
+    "lualine.nvim",
+    enabled = has_category('general') or false,
     event = "VeryLazy",
-    config = function()
+    after = function()
       require("plugins.lualine")
     end,
-    enabled = has_category('ui'),
   },
 
   -- Trouble diagnostics
   {
-    "folke/trouble.nvim",
+    "trouble.nvim",
+    enabled = has_category('general') or false,
     cmd = { "Trouble" },
     keys = {
       { "<leader>td", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
       { "<leader>tD", "<cmd>Trouble diagnostics toggle focus=true<cr>", desc = "Workspace Diagnostics (Trouble)" },
     },
-    config = function()
+    after = function()
       require("plugins.trouble")
     end,
-    enabled = has_category('ui'),
   },
 
   -- Git integration
   {
-    "lewis6991/gitsigns.nvim",
+    "gitsigns.nvim",
+    enabled = has_category('general') or false,
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
+    after = function()
       require("plugins.gitsigns")
     end,
-    enabled = has_category('git'),
   },
 
   -- Copilot
   {
-    "zbirenbaum/copilot.lua",
+    "copilot.lua",
+    enabled = has_category('general') or false,
     cmd = "Copilot",
     event = "InsertEnter",
-    config = function()
+    after = function()
       require("plugins.copilot")
     end,
-    enabled = has_category('completion'),
   },
 
   -- Alpha dashboard
   {
-    "goolord/alpha-nvim",
+    "alpha-nvim",
+    enabled = has_category('general') or false,
     event = "VimEnter",
-    config = function()
+    after = function()
       require("plugins.alpha")
     end,
-    enabled = has_category('ui'),
   },
 
   -- Markdown preview
   {
-    "iamcco/markdown-preview.nvim",
+    "markdown-preview.nvim",
+    enabled = has_category('general') or false,
     ft = "markdown",
-    build = function()
+    before = function()
       vim.fn["mkdp#util#install"]()
     end,
-    config = function()
+    after = function()
       require("plugins.markdown-preview")
     end,
   },
 
   -- Comment
   {
-    "numToStr/Comment.nvim",
+    "comment.nvim",
+    enabled = has_category('general') or false,
     keys = {
       { "gcc", mode = "n", desc = "Comment toggle current line" },
       { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
@@ -220,51 +203,55 @@ require("lazy").setup({
       { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
       { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
     },
-    config = function()
+    after = function()
       require("Comment").setup()
     end,
   },
 
   -- Auto pairs
   {
-    "windwp/nvim-autopairs",
+    "nvim-autopairs",
+    enabled = has_category('general') or false,
     event = "InsertEnter",
-    config = function()
+    after = function()
       require("plugins.autopairs")
     end,
-    enabled = has_category('completion'),
   },
 
   -- Surround
   {
-    "kylechui/nvim-surround",
-    version = "*",
+    "nvim-surround",
+    enabled = has_category('general') or false,
     event = "VeryLazy",
-    config = function()
+    after = function()
       require("nvim-surround").setup({})
     end,
   },
 
   -- Which-key for keybinding hints
   {
-    "folke/which-key.nvim",
+    "which-key.nvim",
+    enabled = has_category('general') or false,
     event = "VeryLazy",
-    init = function()
+    before = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    config = function()
+    after = function()
       require("which-key").setup({})
     end,
   },
 
   -- Buffer line
   {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    "bufferline.nvim",
+    enabled = has_category('general') or false,
     event = "VeryLazy",
-    config = function()
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("nvim-web-devicons")
+    end,
+    after = function()
       require("bufferline").setup({
         options = {
           diagnostics = "nvim_lsp",
@@ -279,26 +266,5 @@ require("lazy").setup({
         }
       })
     end,
-    enabled = has_category('ui'),
   },
-
-}, {
-  ui = {
-    border = "rounded",
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-      },
-    },
-  },
-})
+}
