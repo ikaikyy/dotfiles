@@ -5,7 +5,7 @@ This directory contains a high-performance Neovim configuration built with nixCa
 ## Features
 
 ### Core Functionality
-- **Fast Startup**: Optimized with lazy loading plugins using lazy.nvim
+- **Fast Startup**: Optimized with lazy loading plugins using lze (nixCats lazy loader)
 - **Category-based Loading**: nixCats categories for efficient plugin management
 - **Modern UI**: Gruvbox theme with transparent background
 - **Smart Completion**: nvim-cmp with LSP integration
@@ -32,7 +32,7 @@ This directory contains a high-performance Neovim configuration built with nixCa
 - **AI Assistance**: GitHub Copilot integration
 
 ### Performance Optimizations
-- Lazy loading for all non-essential plugins
+- Lazy loading for all non-essential plugins using lze
 - Category-based plugin organization
 - Optimized treesitter configuration
 - Disabled unnecessary vim plugins
@@ -42,14 +42,14 @@ This directory contains a high-performance Neovim configuration built with nixCa
 
 ```
 modules/nixcats/
-├── default.nix              # Main nixCats build configuration
+├── default.nix              # Main nixCats home-manager module
 ├── init.lua                 # Entry point
 ├── lua/config/              # Core configuration
 │   ├── options.lua          # Vim options and settings
 │   ├── keymaps.lua          # Key mappings
 │   ├── autocmds.lua         # Auto commands
 │   ├── colorscheme.lua      # Theme configuration
-│   └── plugins.lua          # Plugin manager setup
+│   └── plugins.lua          # lze plugin manager setup
 └── lua/plugins/             # Individual plugin configs
     ├── lsp.lua              # Language server configuration
     ├── treesitter.lua       # Syntax highlighting
@@ -99,33 +99,30 @@ modules/nixcats/
 
 ## Categories
 
-nixCats organizes functionality into categories for optimal loading:
+nixCats organizes functionality into language-specific categories for optimal loading:
 
-- **startupPlugins**: Core functionality loaded immediately
-- **lspsAndRuntimeDeps**: Language servers and development tools
-- **navigation**: File explorer and search tools
-- **completion**: Completion engine and snippets
-- **ui**: Status line, dashboard, and visual plugins
-- **git**: Git integration tools
+- **general**: Core functionality loaded for all configurations
+- **typescript**: TypeScript/JavaScript support and tools
+- **python**: Python development environment
+- **php**: PHP development environment  
+- **rust**: Rust development environment
+- **lua**: Lua scripting support
+- **nix**: Nix language support
+- **go**: Go development environment
+- **web**: HTML/CSS/JSON/Markdown support
+- **c**: C/C++ development environment
+- **database**: Database tools and SQL support
 - **format**: Formatting and linting tools
-- **debug**: Debugging tools (future expansion)
-
-## Testing
-
-Run the test script to verify configuration integrity:
-
-```bash
-./test.sh
-```
 
 ## Migration from nixvim
 
 This configuration replaces the previous nixvim setup with several improvements:
 
-1. **Performance**: Faster startup through lazy loading
-2. **Modularity**: Better organized plugin structure
-3. **Maintainability**: Cleaner configuration files
+1. **Performance**: Faster startup through lze lazy loading
+2. **Modularity**: Better organized plugin structure following nixCats patterns
+3. **Maintainability**: Cleaner configuration files with proper home-manager module
 4. **Extensibility**: Easy to add new plugins and features
-5. **Optimization**: Category-based loading reduces resource usage
+5. **Optimization**: Language-specific category-based loading reduces resource usage
+6. **Compatibility**: Follows nixCats best practices and example templates
 
 The configuration maintains all previous functionality while providing significant performance improvements for daily development work.
