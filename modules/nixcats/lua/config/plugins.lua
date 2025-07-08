@@ -245,6 +245,43 @@ require("lazy").setup({
     end,
   },
 
+  -- Which-key for keybinding hints
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = function()
+      require("which-key").setup({})
+    end,
+  },
+
+  -- Buffer line
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
+    config = function()
+      require("bufferline").setup({
+        options = {
+          diagnostics = "nvim_lsp",
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "File Explorer",
+              text_align = "center",
+              separator = true
+            }
+          },
+        }
+      })
+    end,
+    enabled = has_category('ui'),
+  },
+
 }, {
   ui = {
     border = "rounded",

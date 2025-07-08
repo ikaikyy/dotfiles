@@ -51,3 +51,12 @@ keymap.set("v", "<A-j>", ":m .+1<CR>==", { desc = "Move text down" })
 keymap.set("v", "<A-k>", ":m .-2<CR>==", { desc = "Move text up" })
 keymap.set("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move text down" })
 keymap.set("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move text up" })
+
+-- Buffer navigation
+keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
+
+-- Better indenting
+keymap.set("v", "<", "<gv", { desc = "Indent left" })
+keymap.set("v", ">", ">gv", { desc = "Indent right" })
