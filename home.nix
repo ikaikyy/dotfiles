@@ -50,7 +50,7 @@
   xdg.mimeApps.enable = true;
 
   imports = [
-    inputs.nixvim.homeModules.nixvim
+    ./modules/nixcats
     ./modules/shell
     ./modules/hyprland
     ./modules/gtk
@@ -58,7 +58,6 @@
     ./modules/git
     ./modules/clipboard
     ./modules/printscreen
-    ./modules/neovim
     ./modules/nautilus
     ./modules/firefox
     ./modules/spotify
