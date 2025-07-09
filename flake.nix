@@ -15,13 +15,15 @@
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixCats = {
-      url = "github:BirdeeHub/nixCats-nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, ... }@inputs: {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    spicetify-nix,
+    ...
+  } @ inputs: {
     nixosConfigurations = let
       mkHost = hostName:
         nixpkgs.lib.nixosSystem {
@@ -34,7 +36,7 @@
               home-manager.backupFileExtension = "bak";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs hostName; };
+              home-manager.extraSpecialArgs = {inherit inputs hostName;};
               home-manager.users.kaiky = ./home.nix;
             }
           ];
