@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "kaiky";
   home.homeDirectory = "/home/kaiky";
   home.stateVersion = "24.11";
@@ -50,7 +55,7 @@
   xdg.mimeApps.enable = true;
 
   imports = [
-    inputs.nixvim.homeModules.nixvim
+    ./modules/neovim
     ./modules/shell
     ./modules/hyprland
     ./modules/gtk
@@ -58,7 +63,6 @@
     ./modules/git
     ./modules/clipboard
     ./modules/printscreen
-    ./modules/neovim
     ./modules/nautilus
     ./modules/firefox
     ./modules/spotify
