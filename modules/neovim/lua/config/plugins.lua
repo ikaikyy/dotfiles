@@ -183,7 +183,6 @@ require("lze").load({
 			vim.cmd.packadd(name)
 			vim.cmd.packadd("cmp-nvim-lsp")
 			vim.cmd.packadd("cmp-buffer")
-			vim.cmd.packadd("cmp-cmdline")
 			vim.cmd.packadd("cmp-path")
 			vim.cmd.packadd("copilot")
 			vim.cmd.packadd("copilot_cmp")

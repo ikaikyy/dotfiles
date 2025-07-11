@@ -26,7 +26,6 @@ cmp.setup({
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
 				path = "[Path]",
-				cmdline = "[Cmd]",
 				copilot = "[Copilot]",
 			},
 			symbol_map = {
@@ -39,7 +38,6 @@ cmp.setup({
 		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "cmdline" },
 	}, {
 		{ name = "buffer" },
 	}),

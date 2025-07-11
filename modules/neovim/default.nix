@@ -103,7 +103,6 @@ in {
             cmp-nvim-lsp
             copilot-cmp
             cmp-buffer
-            cmp-cmdline
             cmp-path
             none-ls-nvim
             lspkind-nvim
