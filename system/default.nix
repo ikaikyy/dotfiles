@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./configuration.nix
     ./greetd.nix
@@ -7,5 +11,6 @@
     ./backlight.nix
     ./boot.nix
     ./bluetooth.nix
+    ./jellyfin.nix
   ];
 }

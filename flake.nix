@@ -30,7 +30,8 @@
           system = "x86_64-linux";
           modules = [
             (./hosts + "/${hostName}/hardware-configuration.nix")
-            ./modules/system
+            ./system
+            ./modules/qbittorrent.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.backupFileExtension = "bak";

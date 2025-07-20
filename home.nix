@@ -37,12 +37,21 @@
     heroku
     graalvmPackages.graalvm-ce
     mysql80
+    postgresql_15
+    dotnet-sdk_8
+    ydotool
+    libguestfs-with-appliance
 
     android-studio
+    librewolf
     prismlauncher
     smtp4dev
-    qbittorrent
     jetbrains.datagrip
+    jetbrains.rider
+    openfortivpn-webview
+    openfortivpn
+    gitkraken
+    gimp
   ];
 
   home.pointerCursor = {
@@ -55,19 +64,20 @@
   xdg.mimeApps.enable = true;
 
   imports = [
-    ./modules/neovim
-    ./modules/shell
-    ./modules/hyprland
-    ./modules/gtk
-    ./modules/kitty
-    ./modules/git
-    ./modules/clipboard
-    ./modules/printscreen
-    ./modules/nautilus
-    ./modules/firefox
-    ./modules/spotify
-    ./modules/discord
-    ./modules/ags
-    ./modules/retroarch
+    ./programs/neovim
+    ./programs/shell
+    ./programs/hyprland
+    ./programs/gtk
+    ./programs/kitty
+    ./programs/git
+    ./programs/ssh
+    ./programs/clipboard
+    ./programs/printscreen
+    ./programs/nautilus
+    ./programs/firefox
+    ./programs/spotify
+    ./programs/discord
+    ./programs/ags
+    ./programs/retroarch
   ];
 }
