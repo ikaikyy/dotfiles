@@ -1,5 +1,23 @@
-{ config, pkgs, ... }: {
-  programs.firefox = { enable = true; };
+{
+  config,
+  pkgs,
+  ...
+}: {
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-beta;
+
+    profiles.kaiky = {
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          onepassword-password-manager
+          ublock-origin
+          darkreader
+          gruvbox-dark-theme
+        ];
+      };
+    };
+  };
 
   home.sessionVariables.DEFAULT_BROWSER = "firefox";
 

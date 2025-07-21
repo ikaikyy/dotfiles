@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +26,7 @@
     nixpkgs,
     home-manager,
     spicetify-nix,
+    nur,
     ...
   } @ inputs: {
     nixosConfigurations = let
@@ -33,6 +38,7 @@
             ./system
             ./modules/qbittorrent.nix
             home-manager.nixosModules.home-manager
+            nur.modules.nixos.default
             {
               home-manager.backupFileExtension = "bak";
               home-manager.useGlobalPkgs = true;

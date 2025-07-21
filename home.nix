@@ -43,7 +43,6 @@
     libguestfs-with-appliance
 
     android-studio
-    librewolf
     prismlauncher
     smtp4dev
     jetbrains.datagrip
