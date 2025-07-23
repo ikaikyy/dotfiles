@@ -1,5 +1,10 @@
-{ config, pkgs, hostName, ... }: {
-  home.packages = with pkgs; [ qt6.full ];
+{
+  config,
+  pkgs,
+  hostName,
+  ...
+}: {
+  home.packages = with pkgs; [qt6.full];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -18,7 +23,7 @@
 
         follow_mouse = 1;
 
-        touchpad = { natural_scroll = "no"; };
+        touchpad = {natural_scroll = "no";};
 
         accel_profile = "flat";
         numlock_by_default = true;
@@ -51,8 +56,7 @@
           new_optimizations = true;
         };
 
-        shadow = { enabled = true; };
-
+        shadow = {enabled = true;};
       };
 
       animations = {
@@ -75,10 +79,10 @@
         preserve_split = "yes";
       };
 
-      gestures = { workspace_swipe = "off"; };
+      gestures = {workspace_swipe = "off";};
 
       bind = [
-        "CTRL ALT, T, exec, kitty"
+        "CTRL ALT, T, exec, wezterm"
         "$mod, Q, killactive, "
         "$mod, F, fullscreen,"
         "$mod, E, exec, nautilus"
@@ -126,43 +130,49 @@
         # Scroll through existing workspaces with mod+ scroll
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
-
       ];
-      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+      bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
     };
   };
 
   programs.hyprlock = {
     enable = true;
     settings = {
-      general = { hide_cursor = true; };
+      general = {hide_cursor = true;};
 
-      background = [{
-        path = "screenshot";
-        blur_passes = 3;
-        blur_size = 8;
-      }];
+      background = [
+        {
+          path = "screenshot";
+          blur_passes = 3;
+          blur_size = 8;
+        }
+      ];
 
-      input-field = [{
-        size = "386, 64";
-        position = if (hostName == "desktop") then "0, -386" else "0, -256";
-        dots_center = true;
-        dots_spacing = 0.5;
-        inner_color = "rgb(49, 50, 68)";
-        outer_color = "rgb(203, 166, 247)";
+      input-field = [
+        {
+          size = "386, 64";
+          position =
+            if (hostName == "desktop")
+            then "0, -386"
+            else "0, -256";
+          dots_center = true;
+          dots_spacing = 0.5;
+          inner_color = "rgb(49, 50, 68)";
+          outer_color = "rgb(203, 166, 247)";
 
-        font_family = "JetBrains Mono";
-        font_color = "rgb(205, 214, 244)";
-        placeholder_text = "<b>Password...</b>";
-      }];
+          font_family = "JetBrains Mono";
+          font_color = "rgb(205, 214, 244)";
+          placeholder_text = "<b>Password...</b>";
+        }
+      ];
     };
   };
 
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/dotfiles/images/wallpapers/may-and-latios.jpg" ];
-      wallpaper = [ ",~/dotfiles/images/wallpapers/may-and-latios.jpg" ];
+      preload = ["~/dotfiles/images/wallpapers/may-and-latios.jpg"];
+      wallpaper = [",~/dotfiles/images/wallpapers/may-and-latios.jpg"];
     };
   };
 }

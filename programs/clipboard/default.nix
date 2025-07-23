@@ -1,8 +1,12 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs; [ wl-clipboard clipse ];
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [wl-clipboard clipse];
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ "clipse -listen" ];
+    exec-once = ["clipse -listen"];
 
     windowrule = [
       "float, class:(clipse)"
@@ -10,6 +14,6 @@
       "stayfocused, class:(clipse)"
     ];
 
-    bind = [ "$mod, V, exec, kitty --class clipse -e clipse" ];
+    bind = ["$mod, V, exec, wezterm -e --class clipse clipse"];
   };
 }

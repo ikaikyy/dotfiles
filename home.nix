@@ -67,7 +67,7 @@
     ./programs/shell
     ./programs/hyprland
     ./programs/gtk
-    ./programs/kitty
+    ./programs/wezterm
     ./programs/git
     ./programs/ssh
     ./programs/clipboard
