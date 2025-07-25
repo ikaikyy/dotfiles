@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config = {
     allowBroken = true;
@@ -50,7 +53,10 @@
   users.users.kaiky = {
     isNormalUser = true;
     description = "Kaiky Eduardo Martins de Faria";
-    extraGroups = ["networkmanager" "wheel" "docker" "kvm" "adbusers" "libvirtd"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -58,11 +64,7 @@
   environment.shells = with pkgs; [zsh];
   environment.systemPackages = with pkgs; [
     vim
-    docker
-    docker-compose
     libreoffice-qt6-fresh
-    qemu
-    virt-manager
     usbutils
     udiskie
     udisks2
@@ -106,10 +108,6 @@
       extraPortals = with pkgs; [xdg-desktop-portal-gtk];
     };
   };
-
-  virtualisation.docker.enable = true;
-
-  virtualisation.libvirtd.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

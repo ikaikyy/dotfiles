@@ -40,13 +40,17 @@
     postgresql_15
     dotnet-sdk_8
     ydotool
-    libguestfs-with-appliance
+    gemini-cli
 
     android-studio
     prismlauncher
     smtp4dev
-    jetbrains.datagrip
-    jetbrains.rider
+    (jetbrains.datagrip.override {
+      jdk = pkgs.openjdk21;
+    })
+    (jetbrains.rider.override {
+      jdk = pkgs.openjdk21;
+    })
     openfortivpn-webview
     openfortivpn
     gitkraken

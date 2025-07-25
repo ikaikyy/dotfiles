@@ -4,13 +4,14 @@
   ...
 }: {
   imports = [
-    ./configuration.nix
-    ./greetd.nix
-    ./gnupg.nix
-    ./steam.nix
     ./backlight.nix
-    ./boot.nix
     ./bluetooth.nix
+    ./boot.nix
+    ./configuration.nix
+    ./gnupg.nix
+    ./greetd.nix
     ./jellyfin.nix
+    ./steam.nix
+    ./virtualisation.nix
   ];
 }
