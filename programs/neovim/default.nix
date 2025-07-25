@@ -75,6 +75,8 @@ in {
             vscode-langservers-extracted # html, css, json
             htmx-lsp
             markdown-oxide
+            tailwindcss-language-server
+            rustywind
           ];
           c = with pkgs; [
             clang-tools

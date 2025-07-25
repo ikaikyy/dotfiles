@@ -26,6 +26,7 @@ local completion = null_ls.builtins.completion
 local sources = {
   -- Web
   has_category("web") and formatting.prettierd or nil,
+  has_category("web") and formatting.rustywind or nil,
 
   -- PHP
   has_category("php") and formatting.pretty_php or nil,
