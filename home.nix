@@ -67,6 +67,7 @@
   xdg.mimeApps.enable = true;
 
   imports = [
+    inputs.zen-browser.homeModules.twilight
     ./programs/neovim
     ./programs/shell
     ./programs/hyprland
@@ -77,7 +78,7 @@
     ./programs/clipboard
     ./programs/printscreen
     ./programs/nautilus
-    ./programs/firefox
+    ./programs/zen-browser
     ./programs/spotify
     ./programs/discord
     ./programs/ags
