@@ -8,6 +8,4 @@ keymap.set("n", "<leader>sv", "<Cmd>w<CR>", { desc = "Save buffer" })
 keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { desc = "Clear search highlight" })
 
 -- Formatting
-keymap.set({ "n", "v" }, "<leader>fmt", function()
-	vim.lsp.buf.format({ async = true })
-end, { desc = "Format buffer" })
+keymap.set({ "n", "v" }, "<leader>fmt", "<Cmd>Format<CR>", { desc = "Format buffer" })
