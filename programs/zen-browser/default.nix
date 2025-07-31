@@ -19,17 +19,17 @@
 
   xdg.mimeApps = {
     defaultApplications = {
-      "text/html" = "zen-browser";
-      "x-scheme-handler/http" = "zen-browser";
-      "x-scheme-handler/https" = "zen-browser";
-      "x-scheme-handler/about" = "zen-browser";
-      "x-scheme-handler/unknown" = "zen-browser";
-      "application/xhtml+xml" = "zen-browser";
-      "application/x-xpinstall" = "zen-browser";
-      "application/x-xpinstall-manifest" = "zen-browser";
-      "application/x-web-app-manifest+json" = "zen-browser";
-      "application/x-web-app-manifest+json; charset=utf-8" = "zen-browser";
-      "application/xhtml+xml; charset=utf-8" = "zen-browser";
+      "text/html" = "zen-twilight";
+      "x-scheme-handler/http" = "zen-twilight";
+      "x-scheme-handler/https" = "zen-twilight";
+      "x-scheme-handler/about" = "zen-twilight";
+      "x-scheme-handler/unknown" = "zen-twilight";
+      "application/xhtml+xml" = "zen-twilight";
+      "application/x-xpinstall" = "zen-twilight";
+      "application/x-xpinstall-manifest" = "zen-twilight";
+      "application/x-web-app-manifest+json" = "zen-twilight";
+      "application/x-web-app-manifest+json; charset=utf-8" = "zen-twilight";
+      "application/xhtml+xml; charset=utf-8" = "zen-twilight";
     };
   };
 }
