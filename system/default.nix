@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, hostName, ... }: {
   imports = [
     ./backlight.nix
     ./bluetooth.nix
@@ -10,8 +6,12 @@
     ./configuration.nix
     ./gnupg.nix
     ./greetd.nix
-    ./jellyfin.nix
-    ./steam.nix
+  ] ++ (if (hostName == "desktop") then [
     ./virtualisation.nix
-  ];
+    ./steam.nix
+    ./jellyfin.nix
+  ] else if (hostName == "laptop") then
+    [ ]
+  else
+    [ ]);
 }

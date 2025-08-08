@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, pkgs, inputs, hostName, ... }: {
   home.username = "kaiky";
   home.homeDirectory = "/home/kaiky";
   home.stateVersion = "24.11";
@@ -18,44 +13,42 @@
   };
 
   # User packages (not system-wide)
-  home.packages = with pkgs; [
-    # Fonts
-    noto-fonts
-    noto-fonts-lgc-plus
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-color-emoji
-    dejavu_fonts
-    freefont_ttf
-    wqy_microhei
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.hack
+  home.packages = with pkgs;
+    [
+      # Fonts
+      noto-fonts
+      noto-fonts-lgc-plus
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+      dejavu_fonts
+      freefont_ttf
+      wqy_microhei
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.hack
 
-    # CLI
-    unzip
-    unrar
-    heroku
-    graalvmPackages.graalvm-ce
-    mysql80
-    postgresql_15
-    dotnet-sdk_8
-    ydotool
-    gemini-cli
+      # CLI
+      unzip
+      unrar
+      heroku
+      graalvmPackages.graalvm-ce
+      mysql80
+      postgresql_15
+      ydotool
+      gemini-cli
 
-    android-studio
-    prismlauncher
-    smtp4dev
-    (jetbrains.datagrip.override {
-      jdk = pkgs.openjdk21;
-    })
-    (jetbrains.rider.override {
-      jdk = pkgs.openjdk21;
-    })
-    openfortivpn-webview
-    openfortivpn
-    gitkraken
-    gimp
-  ];
+      smtp4dev
+      gitkraken
+    ] ++ (if (hostName == "desktop") then [
+      # Desktop specific
+      android-studio
+      prismlauncher
+      (jetbrains.datagrip.override { jdk = pkgs.openjdk21; })
+      (jetbrains.rider.override { jdk = pkgs.openjdk21; })
+      dotnet-sdk_8
+      gimp
+    ] else
+      [ ]);
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -83,5 +76,10 @@
     ./programs/discord
     ./programs/ags
     ./programs/retroarch
-  ];
+  ] ++ (if (hostName == "desktop") then
+    [ ]
+  else if (hostName == "laptop") then
+    [ ]
+  else
+    [ ]);
 }
