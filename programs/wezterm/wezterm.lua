@@ -1,11 +1,16 @@
 local wezterm = require("wezterm")
 
+local host = wezterm.hostname()
 local config = wezterm.config_builder()
 
 config.color_scheme = "GruvboxDarkHard"
 
 config.font = wezterm.font("JetBrainsMono NerdFont")
-config.font_size = 13.3
+if host == "nixos-desktop" then
+  config.font_size = 13.3
+elseif host == "nixos-laptop" then
+  config.font_size = 12
+end
 config.line_height = 1.2
 
 config.text_background_opacity = 1.0
