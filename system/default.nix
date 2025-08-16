@@ -20,8 +20,6 @@
         ./sshd.nix
         ./steam.nix
         ./virtualisation.nix
-        ./steam.nix
-        ./jellyfin.nix
       ]
       else if (hostName == "laptop")
       then []
