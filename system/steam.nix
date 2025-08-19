@@ -1,4 +1,10 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [lutris];
+
   programs = {
     gamescope = {
       enable = true;
@@ -12,5 +18,4 @@
       localNetworkGameTransfers.openFirewall = true;
     };
   };
-
 }
