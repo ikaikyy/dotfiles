@@ -8,7 +8,7 @@
     ports = [22];
     settings = {
       AllowUsers = null;
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PubkeyAuthentication = true;
       PermitRootLogin = "prohibit-password";
     };
