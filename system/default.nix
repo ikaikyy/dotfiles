@@ -18,7 +18,7 @@
       then [
         ./jellyfin.nix
         ./sshd.nix
-        ./steam.nix
+        ./games.nix
         ./virtualisation.nix
       ]
       else if (hostName == "laptop")
