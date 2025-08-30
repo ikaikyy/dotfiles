@@ -139,8 +139,6 @@ class AppLauncher {
   handleAgsRequest(argv: string[], res: (response: string) => void) {
     const request = argv[0];
 
-    console.log(`AppLauncher received request: ${request}`);
-
     switch (request) {
       case "show-app-launcher":
         this.showWindow();
