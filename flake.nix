@@ -27,30 +27,40 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, nur, ... }@inputs: {
-    nixosConfigurations = let
-      mkHost = hostName:
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit hostName; };
-          modules = [
-            (./hosts + "/${hostName}/hardware-configuration.nix")
-            ./system
-            ./modules/qbittorrent.nix
-            home-manager.nixosModules.home-manager
-            nur.modules.nixos.default
-            {
-              home-manager.backupFileExtension = "bak";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs hostName; };
-              home-manager.users.kaiky = ./home.nix;
-            }
-          ];
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      spicetify-nix,
+      nur,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations =
+        let
+          mkHost =
+            hostName:
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit hostName; };
+              modules = [
+                (./hosts + "/${hostName}/hardware-configuration.nix")
+                ./system
+                home-manager.nixosModules.home-manager
+                nur.modules.nixos.default
+                {
+                  home-manager.backupFileExtension = "bak";
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = { inherit inputs hostName; };
+                  home-manager.users.kaiky = ./home.nix;
+                }
+              ];
+            };
+        in
+        {
+          nixos-desktop = mkHost "desktop";
+          nixos-laptop = mkHost "laptop";
         };
-    in {
-      nixos-desktop = mkHost "desktop";
-      nixos-laptop = mkHost "laptop";
     };
-  };
 }

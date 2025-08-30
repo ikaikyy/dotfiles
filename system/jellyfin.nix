@@ -21,7 +21,8 @@
     openFirewall = true;
     user = "qbittorrent";
     group = "qbittorrent";
-    dataDir = "/mnt/datastore/qbittorrent";
+    profileDir = "/mnt/datastore/qbittorrent";
+    torrentingPort = 64915;
     webuiPort = 8080;
   };
 
