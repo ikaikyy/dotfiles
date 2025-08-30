@@ -1,4 +1,14 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    wineWowPackages.waylandFull
+    lutris
+    hydralauncher
+  ];
+
   programs = {
     gamescope = {
       enable = true;
@@ -12,5 +22,4 @@
       localNetworkGameTransfers.openFirewall = true;
     };
   };
-
 }

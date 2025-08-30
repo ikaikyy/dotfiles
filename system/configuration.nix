@@ -1,16 +1,20 @@
 {
   config,
   pkgs,
+  hostName,
   ...
 }: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-${hostName}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -50,7 +54,10 @@
   users.users.kaiky = {
     isNormalUser = true;
     description = "Kaiky Eduardo Martins de Faria";
-    extraGroups = ["networkmanager" "wheel" "docker" "kvm" "adbusers" "libvirtd"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -58,11 +65,7 @@
   environment.shells = with pkgs; [zsh];
   environment.systemPackages = with pkgs; [
     vim
-    docker
-    docker-compose
     libreoffice-qt6-fresh
-    qemu
-    virt-manager
     usbutils
     udiskie
     udisks2
@@ -107,9 +110,8 @@
     };
   };
 
-  virtualisation.docker.enable = true;
-
-  virtualisation.libvirtd.enable = true;
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "performance";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

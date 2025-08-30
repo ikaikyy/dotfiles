@@ -10,6 +10,8 @@ telescope.setup({
 		file_ignore_patterns = {
 			"%.git/",
 			"node_modules/",
+			"vendor/",
+			"%.lock",
 			"%.next/",
 			"dist/",
 			"build/",

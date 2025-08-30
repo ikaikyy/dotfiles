@@ -1,16 +1,28 @@
 {
   config,
   pkgs,
+  hostName,
   ...
 }: {
-  imports = [
-    ./configuration.nix
-    ./greetd.nix
-    ./gnupg.nix
-    ./steam.nix
-    ./backlight.nix
-    ./boot.nix
-    ./bluetooth.nix
-    ./jellyfin.nix
-  ];
+  imports =
+    [
+      ./backlight.nix
+      ./bluetooth.nix
+      ./boot.nix
+      ./configuration.nix
+      ./gnupg.nix
+      ./greetd.nix
+    ]
+    ++ (
+      if (hostName == "desktop")
+      then [
+        ./jellyfin.nix
+        ./sshd.nix
+        ./games.nix
+        ./virtualisation.nix
+      ]
+      else if (hostName == "laptop")
+      then []
+      else []
+    );
 }

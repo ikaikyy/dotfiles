@@ -9,22 +9,13 @@ local general = augroup("General", { clear = true })
 local cmdline = augroup("CmdlineHeight", { clear = true })
 
 autocmd("CmdlineEnter", {
-  group = cmdline,
-  pattern = "*",
-  command = "setlocal cmdheight=1",
+	group = cmdline,
+	pattern = "*",
+	command = "setlocal cmdheight=1",
 })
 
 autocmd("CmdlineLeave", {
-  group = cmdline,
-  pattern = "*",
-  command = "setlocal cmdheight=0",
-})
-
--- Format on save
-autocmd("BufWritePre", {
-  group = general,
-  pattern = "*",
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
+	group = cmdline,
+	pattern = "*",
+	command = "setlocal cmdheight=0",
 })
