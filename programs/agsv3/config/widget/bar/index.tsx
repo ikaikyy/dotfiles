@@ -2,6 +2,7 @@ import app from "ags/gtk4/app";
 import { Astal, Gtk, Gdk } from "ags/gtk4";
 import Workspaces from "./workspaces";
 import SystemTray from "./system-tray";
+import Icon from "../icon";
 
 const WINDOW_NAME = "Bar";
 
@@ -21,7 +22,8 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <box halign={Gtk.Align.FILL} valign={Gtk.Align.CENTER}>
-        <box halign={Gtk.Align.START}>
+        <box halign={Gtk.Align.START} spacing={8}>
+          <Icon iconName="nix-snowflake" />
           <Workspaces />
         </box>
         <box halign={Gtk.Align.CENTER}></box>
