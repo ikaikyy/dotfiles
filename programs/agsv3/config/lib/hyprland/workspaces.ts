@@ -16,7 +16,7 @@ export default class Workspaces {
     this.setActiveWorkspaceId = setActiveWorkspaceId;
   }
 
-  public init() {
+  init() {
     this.hyprland.connect("event", (_, event, args) => {
       if (event === "workspacev2") {
         const workspace = Number(args.split(",")[0]);
@@ -25,11 +25,11 @@ export default class Workspaces {
     });
   }
 
-  public goToWorkspace(workspaceId: number) {
+  goToWorkspace(workspaceId: number) {
     this.hyprland.dispatch("workspace", workspaceId.toString());
   }
 
-  public workspaceStatus(workspaceId: number): Accessor<WorkspaceStatus> {
+  workspaceStatus(workspaceId: number): Accessor<WorkspaceStatus> {
     return this.activeWorkspaceId.as<WorkspaceStatus>((activeWorkspaceId) => {
       const workspace = this.hyprland
         .get_workspaces()

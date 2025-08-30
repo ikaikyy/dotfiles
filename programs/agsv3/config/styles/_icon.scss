@@ -2,7 +2,14 @@
 
 box.icon {
   background: rgba($fg0, 0.05);
-  border-radius: 50%;
 
   padding: 4px;
+
+  &.rounded {
+    border-radius: 8px;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
 }

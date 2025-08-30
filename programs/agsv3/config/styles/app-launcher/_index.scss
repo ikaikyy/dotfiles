@@ -1,0 +1,50 @@
+@use "../theme" as *;
+
+window.AppLauncher {
+  background: rgba($bg0, 0.8);
+  border-radius: 16px;
+  color: $fg1;
+  font-size: 16px;
+  font-weight: bold;
+
+  & .main {
+    padding: 12px;
+
+    & .header {
+      & .search-input {
+        background: rgba($fg0, 0.05);
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        padding: 8px 12px;
+
+        color: $fg1;
+
+        &::placeholder {
+          color: $fg2;
+        }
+      }
+    }
+
+    & .app-list {
+      & button {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+
+        & .app {
+          background: rgba($fg0, 0.05);
+          border-radius: 8px;
+
+          padding: 8px;
+
+          &.selected,
+          &:hover {
+            background: rgba($green, 0.6);
+          }
+        }
+      }
+    }
+  }
+}

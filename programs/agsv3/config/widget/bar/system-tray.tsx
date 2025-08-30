@@ -7,7 +7,7 @@ export default function SystemTray() {
 
   return (
     <box class="system-tray" valign={Gtk.Align.CENTER}>
-      <For each={createBinding(tray, "items")}>
+    {(<For each={createBinding(tray, "items")}>
         {(item: Tray.TrayItem) => {
           return (
             <menubutton
@@ -34,7 +34,7 @@ export default function SystemTray() {
             </menubutton>
           );
         }}
-      </For>
+      </For>)}
     </box>
   );
 }
