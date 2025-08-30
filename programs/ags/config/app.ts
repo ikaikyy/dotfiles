@@ -1,17 +1,17 @@
-import { App } from "astal/gtk4";
-import style from "./style.scss";
-import Bar from "./widget/Bar";
-import AppLauncher, { appLaunchController } from "./widget/AppLauncher";
-import PowerMenu from "./widget/PowerMenu";
+import app from "ags/gtk4/app";
+import style from "./styles/index.scss";
 
-App.start({
+import Bar from "./widget/bar";
+
+import appLauncher from "./lib/app-launcher";
+import AppLauncher from "./widget/app-launcher";
+
+app.start({
   css: style,
   main() {
-    AppLauncher();
-    PowerMenu();
-    Bar();
+    app.get_monitors().map(Bar, AppLauncher());
   },
-  requestHandler: (request, res) => {
-    appLaunchController.requestHandler(request, res);
+  requestHandler: (argv, res) => {
+    appLauncher.handleAgsRequest(argv, res);
   },
 });
