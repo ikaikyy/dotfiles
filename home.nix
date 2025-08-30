@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, hostName, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  hostName,
+  ...
+}: {
   home.username = "kaiky";
   home.homeDirectory = "/home/kaiky";
   home.stateVersion = "24.11";
@@ -39,16 +45,21 @@
 
       smtp4dev
       gitkraken
-    ] ++ (if (hostName == "desktop") then [
-      # Desktop specific
-      android-studio
-      prismlauncher
-      (jetbrains.datagrip.override { jdk = pkgs.openjdk21; })
-      (jetbrains.rider.override { jdk = pkgs.openjdk21; })
-      dotnet-sdk_8
-      gimp
-    ] else
-      [ ]);
+      chromium # For things that requires chrome
+    ]
+    ++ (
+      if (hostName == "desktop")
+      then [
+        # Desktop specific
+        android-studio
+        prismlauncher
+        (jetbrains.datagrip.override {jdk = pkgs.openjdk21;})
+        (jetbrains.rider.override {jdk = pkgs.openjdk21;})
+        dotnet-sdk_8
+        gimp
+      ]
+      else []
+    );
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -59,27 +70,30 @@
 
   xdg.mimeApps.enable = true;
 
-  imports = [
-    inputs.zen-browser.homeModules.twilight
-    ./programs/neovim
-    ./programs/shell
-    ./programs/hyprland
-    ./programs/gtk
-    ./programs/wezterm
-    ./programs/git
-    ./programs/ssh
-    ./programs/clipboard
-    ./programs/printscreen
-    ./programs/nautilus
-    ./programs/zen-browser
-    ./programs/spotify
-    ./programs/discord
-    ./programs/ags
-    ./programs/retroarch
-  ] ++ (if (hostName == "desktop") then
-    [ ]
-  else if (hostName == "laptop") then
-    [ ]
-  else
-    [ ]);
+  imports =
+    [
+      inputs.zen-browser.homeModules.twilight
+      ./programs/neovim
+      ./programs/shell
+      ./programs/hyprland
+      ./programs/gtk
+      ./programs/wezterm
+      ./programs/git
+      ./programs/ssh
+      ./programs/clipboard
+      ./programs/printscreen
+      ./programs/nautilus
+      ./programs/zen-browser
+      ./programs/spotify
+      ./programs/discord
+      ./programs/ags
+      ./programs/retroarch
+    ]
+    ++ (
+      if (hostName == "desktop")
+      then []
+      else if (hostName == "laptop")
+      then []
+      else []
+    );
 }
