@@ -14,6 +14,7 @@ window.Bar {
     padding: 8px;
 
     & .workspace {
+      border: none;
       border-radius: 50%;
       min-height: 0;
       min-width: 0;
