@@ -16,7 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      url = "github:Aylur/ags";
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -27,40 +31,35 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      spicetify-nix,
-      nur,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations =
-        let
-          mkHost =
-            hostName:
-            nixpkgs.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit hostName; };
-              modules = [
-                (./hosts + "/${hostName}/hardware-configuration.nix")
-                ./system
-                home-manager.nixosModules.home-manager
-                nur.modules.nixos.default
-                {
-                  home-manager.backupFileExtension = "bak";
-                  home-manager.useGlobalPkgs = true;
-                  home-manager.useUserPackages = true;
-                  home-manager.extraSpecialArgs = { inherit inputs hostName; };
-                  home-manager.users.kaiky = ./home.nix;
-                }
-              ];
-            };
-        in
-        {
-          nixos-desktop = mkHost "desktop";
-          nixos-laptop = mkHost "laptop";
+  outputs = {
+    nixpkgs,
+    home-manager,
+    spicetify-nix,
+    nur,
+    ...
+  } @ inputs: {
+    nixosConfigurations = let
+      mkHost = hostName:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit hostName;};
+          modules = [
+            (./hosts + "/${hostName}/hardware-configuration.nix")
+            ./system
+            home-manager.nixosModules.home-manager
+            nur.modules.nixos.default
+            {
+              home-manager.backupFileExtension = "bak";
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {inherit inputs hostName;};
+              home-manager.users.kaiky = ./home.nix;
+            }
+          ];
         };
+    in {
+      nixos-desktop = mkHost "desktop";
+      nixos-laptop = mkHost "laptop";
     };
+  };
 }
