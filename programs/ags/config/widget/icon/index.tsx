@@ -1,4 +1,3 @@
-import { Image } from "astal/gtk4/widget";
 import { getIconPaintable } from "../../lib/icon-theme";
 import { Gtk } from "ags/gtk4";
 
@@ -21,7 +20,7 @@ export default function Icon({
       valign={Gtk.Align.CENTER}
       halign={Gtk.Align.CENTER}
     >
-      <Image
+      <image
         paintable={iconPaintable}
         heightRequest={size}
         widthRequest={size}
