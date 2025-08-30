@@ -21,7 +21,7 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ "ags run --gtk4" ];
+    exec-once = [ "ags run --gtk 4" ];
     bind = [ "$mod, M, exec, ags request 'toggle-app-launcher'" ];
     layerrule =
       builtins.concatMap
