@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local host = wezterm.hostname()
 local config = wezterm.config_builder()
 
-config.color_scheme = "GruvboxDarkHard"
+config.color_scheme = "Gruvbox dark, hard (base16)"
 
 config.font = wezterm.font("JetBrainsMono NerdFont")
 if host == "nixos-desktop" then
@@ -14,8 +14,6 @@ elseif host == "nixos-laptop" then
   config.line_height = 1.1
 end
 
-config.text_background_opacity = 1.0
-config.window_background_opacity = 0.8
 config.window_padding = {
   left = "0.5cell",
   right = "0.5cell",
