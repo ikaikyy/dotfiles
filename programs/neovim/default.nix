@@ -4,200 +4,63 @@
   inputs,
   ...
 }:
-let
-  utils = inputs.nixCats.utils;
-in
 {
   imports = [
-    inputs.nixCats.homeModule
+    inputs.nixvim.homeModules.nixvim
+    ./autocmd.nix
+    ./colorscheme.nix
+    ./keymaps.nix
+    ./lsp.nix
+    ./plugins
   ];
-  config = {
-    nixCats = {
-      enable = true;
-      addOverlays = [
-        (utils.standardPluginOverlay inputs)
-      ];
-      packageNames = [ "myNixCats" ];
 
-      luaPath = ./.;
+  programs.nixvim = {
+    enable = true;
+    enableMan = true;
+    enablePrintInit = true;
 
-      categoryDefinitions.replace =
-        {
-          pkgs,
-          settings,
-          categories,
-          extra,
-          name,
-          mkPlugin,
-          ...
-        }@packageDef:
-        {
-          lspsAndRuntimeDeps = {
-            general = with pkgs; [
-              ripgrep
-              fd
-              git
-              curl
-              tree-sitter
-            ];
-            typescript = with pkgs; [
-              typescript-language-server
-              nodePackages.eslint
-              prettierd
-              nodejs
-            ];
-            python = with pkgs; [
-              python311Packages.python-lsp-server
-              python311Packages.black
-              python311Packages.isort
-              python3
-            ];
-            php = with pkgs; [
-              intelephense
-              pretty-php
-              blade-formatter
-            ];
-            rust = with pkgs; [
-              rust-analyzer
-              dioxus-cli
-              cargo
-              rustc
-            ];
-            lua = with pkgs; [
-              lua-language-server
-              stylua
-            ];
-            nix = with pkgs; [
-              nil
-              alejandra
-            ];
-            go = with pkgs; [
-              gopls
-              go
-            ];
-            web = with pkgs; [
-              vscode-langservers-extracted # html, css, json
-              htmx-lsp
-              markdown-oxide
-              tailwindcss-language-server
-              rustywind
-            ];
-            c = with pkgs; [
-              clang-tools
-              gcc
-            ];
-            database = with pkgs; [
-              mysql80
-            ];
-            shell = with pkgs; [
-              shfmt
-            ];
-          };
+    defaultEditor = true;
 
-          startupPlugins = {
-            general = with pkgs.vimPlugins; [
-              lze
-              lzextras
-              gruvbox-nvim
+    opts = {
+      # Basic editing
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      autoindent = true;
+      smartindent = true;
 
-              # Core functionality
-              nvim-web-devicons
+      # Line numbers
+      number = true;
+      relativenumber = true;
 
-              # LSP and completion
-              nvim-lspconfig
-              nvim-cmp
-              cmp-nvim-lsp
-              copilot-cmp
-              cmp-buffer
-              cmp-path
-              none-ls-nvim
-              lspkind-nvim
-              lsp-format-nvim
+      # Search
+      hlsearch = true;
+      incsearch = true;
+      ignorecase = true;
+      smartcase = true;
 
-              # Navigation
-              nvim-tree-lua
-              telescope-nvim
-              plenary-nvim
+      # Visual
+      termguicolors = true;
+      signcolumn = "yes";
+      cmdheight = 0;
+      scrolloff = 8;
+      sidescrolloff = 8;
+      wrap = false;
 
-              # Treesitter
-              nvim-treesitter.withAllGrammars
+      # Clipboard
+      clipboard = "unnamedplus";
 
-              # UI
-              lualine-nvim
-              copilot-lualine
-              alpha-nvim
-              trouble-nvim
-
-              # Git
-              gitsigns-nvim
-
-              # Editing
-              comment-nvim
-              nvim-autopairs
-
-              # Copilot
-              copilot-lua
-
-              # Markdown
-              markdown-preview-nvim
-            ];
-          };
-
-          optionalPlugins = {
-            general = with pkgs.vimPlugins; [ ];
-          };
-
-          sharedLibraries = {
-            general = with pkgs; [ ];
-          };
-
-          environmentVariables = {
-          };
-
-          python3.libraries = {
-          };
-
-          extraWrapperArgs = {
-          };
-        };
-
-      packageDefinitions.replace = {
-        myNixCats =
-          {
-            pkgs,
-            name,
-            ...
-          }:
-          {
-            settings = {
-              suffix-path = true;
-              suffix-LD = true;
-              wrapRc = true;
-              aliases = [
-                "nvim"
-              ];
-            };
-            categories = {
-              general = true;
-              typescript = true;
-              python = true;
-              php = true;
-              rust = true;
-              lua = true;
-              nix = true;
-              go = true;
-              web = true;
-              c = true;
-              database = true;
-              shell = true;
-            };
-            extra = {
-            };
-          };
-      };
+      # Undo
+      undofile = true;
+      undodir = "/home/kaiky/.vim/undodir";
     };
 
-    # Set EDITOR environment variable
-    home.sessionVariables.EDITOR = "nvim";
+    globals = {
+      # Disable netrw
+      loaded_netrw = 1;
+      loaded_netrwPlugin = 1;
+
+      mapleader = " ";
+    };
   };
 }
