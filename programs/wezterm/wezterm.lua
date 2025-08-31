@@ -7,8 +7,8 @@ config.color_scheme = "GruvboxDarkHard"
 
 config.font = wezterm.font("JetBrainsMono NerdFont")
 if host == "nixos-desktop" then
-  config.font_size = 13.3
-  config.line_height = 1.2
+  config.font_size = 13
+  config.line_height = 1.15
 elseif host == "nixos-laptop" then
   config.font_size = 11
   config.line_height = 1.1
