@@ -1,5 +1,5 @@
 import app from "ags/gtk4/app";
-import { createState, For } from "ags";
+import { createComputed, createState, For } from "ags";
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 
 import appLauncher from "../../lib/app-launcher";
@@ -50,51 +50,46 @@ export default function AppLauncher() {
             spacing={8}
           >
             {
-              (
-                <For each={appLauncher.appsList}>
-                  {(app, index) => {
-                    appLauncher.selectedIndex.subscribe(() => {
-                      if (appLauncher.selectedIndex.get() === index.get()) {
-                        const ITEM_HEIGHT = 48;
-                        const ITEM_SPACING = 8;
-                        scrolledWindowRef
-                          .get()
-                          ?.get_vadjustment()
-                          .set_value(
-                            (ITEM_HEIGHT + ITEM_SPACING) * index.get(),
-                          );
-                      }
-                    });
+              <For each={appLauncher.appsList}>
+                {(app, index) => {
+                  appLauncher.selectedIndex.subscribe(() => {
+                    if (appLauncher.selectedIndex.get() === index.get()) {
+                      const ITEM_HEIGHT = 48;
+                      const ITEM_SPACING = 8;
+                      scrolledWindowRef
+                        .get()
+                        ?.get_vadjustment()
+                        .set_value((ITEM_HEIGHT + ITEM_SPACING) * index.get());
+                    }
+                  });
 
-                    return (
-                      <button
-                        canFocus={false}
-                        cursor={Gdk.Cursor.new_from_name("pointer", null)}
-                        onClicked={() =>
-                          appLauncher.launchAppAtIndex(index.get())
-                        }
+                  return (
+                    <button
+                      canFocus={false}
+                      cursor={Gdk.Cursor.new_from_name("pointer", null)}
+                      onClicked={() =>
+                        appLauncher.launchAppAtIndex(index.get())
+                      }
+                    >
+                      <box
+                        class={createComputed(
+                          [index, appLauncher.selectedIndex],
+                          (index, selectedIndex) =>
+                            index === selectedIndex ? "app selected" : "app",
+                        )}
+                        spacing={12}
                       >
-                        <box
-                          class={appLauncher.selectedIndex.as(
-                            (selectedIndex) =>
-                              selectedIndex === index.get()
-                                ? "app selected"
-                                : "app",
-                          )}
-                          spacing={12}
-                        >
-                          <Icon
-                            iconName={app.iconName}
-                            size={32}
-                            background="rounded"
-                          />
-                          <label label={app.name} class="app-name" />
-                        </box>
-                      </button>
-                    );
-                  }}
-                </For>
-              ) as any
+                        <Icon
+                          iconName={app.iconName}
+                          size={32}
+                          background="rounded"
+                        />
+                        <label label={app.name} class="app-name" />
+                      </box>
+                    </button>
+                  );
+                }}
+              </For>
             }
           </box>
         </scrolledwindow>

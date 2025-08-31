@@ -115,7 +115,7 @@ class AppLauncher {
     if (newQuery !== this.searchQuery.get()) {
       this.setSearchQuery(newQuery);
     }
-    this.setSelectedIndex(-1);
+    this.setSelectedIndex(0);
   }
 
   handleKeyPress(keyval: number) {
