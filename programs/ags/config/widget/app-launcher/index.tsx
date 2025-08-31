@@ -20,7 +20,7 @@ export default function AppLauncher() {
       widthRequest={800}
       monitor={0}
       exclusivity={Astal.Exclusivity.IGNORE}
-      keymode={Astal.Keymode.EXCLUSIVE}
+      keymode={Astal.Keymode.ON_DEMAND}
       visible={false}
     >
       <Gtk.EventControllerKey
@@ -54,7 +54,7 @@ export default function AppLauncher() {
                 {(app, index) => {
                   appLauncher.selectedIndex.subscribe(() => {
                     if (appLauncher.selectedIndex.get() === index.get()) {
-                      const ITEM_HEIGHT = 48;
+                      const ITEM_HEIGHT = 56;
                       const ITEM_SPACING = 8;
                       scrolledWindowRef
                         .get()
