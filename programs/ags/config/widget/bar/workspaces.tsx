@@ -12,7 +12,7 @@ const icons = [
   "1password-panel",
   "virtual-desktops",
   "discord-tray",
-]
+];
 
 export default function Workspaces() {
   Hyprland.workspaces.init();
@@ -48,7 +48,6 @@ function Workspace({ workspaceId }: WorkspaceProps) {
         class={Hyprland.workspaces
           .workspaceStatus(workspaceId)
           .as((status) => `workspace ${status}`)}
-        cursor={Gdk.Cursor.new_from_name("pointer", null)}
         onClicked={() => Hyprland.workspaces.goToWorkspace(workspaceId)}
       >
         {iconPaintable && (
