@@ -4,16 +4,15 @@
 window.Bar {
   background: rgba($bg0, 0.8);
   color: $fg0;
-  font-weight: bold;
 
   padding: 4px;
 
   .workspaces {
     background: rgba($fg0, 0.05);
     border-radius: 20px;
-    padding: 8px;
 
     & .workspace {
+      background: transparent;
       border: none;
       border-radius: 50%;
       min-height: 0;
@@ -22,18 +21,9 @@ window.Bar {
 
       transition: all 0.2s ease-in-out;
 
+      &.active,
       &:hover {
-        background: $green;
-        padding: 6px;
-      }
-
-      &.inactive {
-        background: $green;
-      }
-
-      &.active {
-        background: $green;
-        padding: 8px;
+        background: rgba($fg0, 0.1);
       }
     }
   }
