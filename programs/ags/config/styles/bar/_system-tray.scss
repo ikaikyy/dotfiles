@@ -1,7 +1,7 @@
 @use "../theme" as *;
 
 .system-tray {
-  background: rgba($fg0, 0.05);
+  background: rgba($fg0, 0.1);
   border-radius: 20px;
 
   &-item {
@@ -18,12 +18,12 @@
 
     &.active > button,
     & > button:hover {
-      background: rgba($fg0, 0.1);
+      background: rgba($fg0, 0.2);
     }
 
     &-popover {
       & > contents {
-        background: rgba($bg0, 0.8);
+        background: rgba($bg0, 0.4);
         border: 2px solid $green;
         border-radius: 16px;
 
@@ -39,7 +39,7 @@
         border-radius: 8px;
 
         &:hover {
-          background: rgba($fg0, 0.1);
+          background: rgba($fg0, 0.2);
         }
       }
     }

@@ -1,8 +1,9 @@
 @use "../theme" as *;
 
 window.AppLauncher {
-  background: rgba($bg0, 0.8);
+  background: rgba($bg0, 0.2);
   border-radius: 16px;
+  border: 3px solid rgba($green, 0.6);
   color: $fg1;
   font-size: 16px;
   font-weight: bold;
@@ -12,7 +13,7 @@ window.AppLauncher {
 
     & .header {
       & .search-input {
-        background: rgba($fg0, 0.05);
+        background: rgba($fg0, 0.1);
         border: none;
         border-radius: 8px;
         outline: none;
@@ -34,7 +35,7 @@ window.AppLauncher {
         padding: 0;
 
         & .app {
-          background: rgba($fg0, 0.05);
+          background: rgba($fg0, 0.1);
           border-radius: 8px;
 
           padding: 8px;
