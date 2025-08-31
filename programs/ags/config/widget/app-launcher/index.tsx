@@ -32,7 +32,7 @@ export default function AppLauncher() {
           <entry
             class="search-input"
             placeholderText="Search for an app..."
-            text={appLauncher.searchQuery.get()}
+            text={appLauncher.searchQuery}
             onActivate={() => appLauncher.launchSelectedApp()}
             onNotifyText={(self) =>
               appLauncher.handleSearchQueryChange(self.text)
