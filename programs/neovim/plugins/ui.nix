@@ -16,13 +16,13 @@
           local dashboard = require("alpha.themes.dashboard")
 
           dashboard.section.buttons.val = {
-            dashboard.button("n", "  New file", "<Cmd>ene!<CR>"),
-            dashboard.button("e", "  Open file explorer", "<Cmd>NvimTreeToggle<CR>"),
-            dashboard.button("f", "  Find file", "<cmd>Telescope find_files<CR>"),
-            dashboard.button("r", "  Recent files", "<cmd>Telescope oldfiles<CR>"),
-            dashboard.button("g", "  Live grep", "<cmd>Telescope live_grep<CR>"),
-            dashboard.button("d", "  Dotfiles", "<Cmd>NvimTreeOpen $HOME/dotfiles<CR>"),
-            dashboard.button("q", "  Quit Neovim", "<Cmd>qa<CR>"),
+            dashboard.button("n", "󰻭 New file", "<Cmd>ene!<CR>"),
+            dashboard.button("e", "󰉖 Open file explorer", "<Cmd>NvimTreeToggle<CR>"),
+            dashboard.button("f", "󰱽 Find file", "<cmd>Telescope find_files<CR>"),
+            dashboard.button("r", "󱋢 Recent files", "<cmd>Telescope oldfiles<CR>"),
+            dashboard.button("g", "󱎸 Live grep", "<cmd>Telescope live_grep<CR>"),
+            dashboard.button("d", "󱂀 Dotfiles", "<Cmd>NvimTreeOpen $HOME/dotfiles<CR>"),
+            dashboard.button("q", "󰿅 Quit Neovim", "<Cmd>qa<CR>"),
           }
 
           dashboard.section.footer.val = "Welcome to Nixvim!";
