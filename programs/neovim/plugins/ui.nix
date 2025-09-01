@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.nixvim.keymaps = [
     {
       mode = "n";
@@ -6,6 +6,8 @@
       action = "<cmd>NvimTreeToggle<cr>";
     }
   ];
+
+  programs.nixvim.extraPlugins = [pkgs.vimPlugins.copilot-lualine];
 
   programs.nixvim.plugins = {
     alpha = {
