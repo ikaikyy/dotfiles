@@ -1,10 +1,6 @@
 @use "../theme" as *;
 
 .notifications-manager {
-  background: rgba($bg0, 0.4);
-  color: $fg0;
-  padding: 8px;
-
   & .notifications-manager-title {
     font-weight: bold;
     font-size: 1.2em;
@@ -15,7 +11,7 @@
   }
 
   & .notification {
-    background: rgba($fg0, 0.1);
+    background: $bg0;
     border-radius: 16px;
     padding: 8px;
 
@@ -24,7 +20,7 @@
     }
 
     & .notification-close {
-      background: rgba($fg0, 0.1);
+      background: $bg1;
       border-radius: 50%;
       border: none;
 
@@ -35,18 +31,12 @@
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        background: rgba($fg0, 0.2);
+        background: $bg2;
       }
     }
 
-    & .notification-image-container {
-      background: rgba($fg0, 0.1);
+    & .notification-image {
       border-radius: 8px;
-      padding: 4px;
-
-      & image {
-        border-radius: 6px;
-      }
     }
 
     &.urgency-low {

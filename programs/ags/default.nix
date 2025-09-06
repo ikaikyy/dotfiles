@@ -24,17 +24,5 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [ "ags run $HOME/.config/ags/app.ts --gtk 4" ];
     bind = [ "$mod, M, exec, ags request 'toggle-app-launcher'" ];
-    layerrule =
-      builtins.concatMap
-        (s: [
-          "blur, ${s}"
-          "blurpopups, ${s}"
-          "ignorezero, ${s}"
-        ])
-        [
-          "AppLauncher"
-          "Bar"
-          "Menu"
-        ];
   };
 }

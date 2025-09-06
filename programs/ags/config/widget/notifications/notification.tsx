@@ -46,19 +46,18 @@ export default function Notification({ notification }: NotificationProps) {
       </box>
       <box spacing={8} halign={Gtk.Align.START} hexpand={true}>
         {notification.image ? (
-          <box class="notification-image-container">
-            <image
-              file={notification.image}
-              widthRequest={124}
-              heightRequest={124}
-              overflow={Gtk.Overflow.HIDDEN}
-            />
-          </box>
+          <image
+            class="notification-image"
+            file={notification.image}
+            widthRequest={132}
+            heightRequest={132}
+            overflow={Gtk.Overflow.HIDDEN}
+          />
         ) : (
           <Icon
             iconName={notification.appIcon || "notifications"}
-            background="rounded"
-            size={124}
+            background="none"
+            size={132}
           />
         )}
         <Gtk.ScrolledWindow widthRequest={236} heightRequest={124}>

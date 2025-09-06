@@ -27,8 +27,11 @@ export default function AppLauncher() {
         onKeyPressed={(_, keyval) => appLauncher.handleKeyPress(keyval)}
       />
       <box class="main" orientation={Gtk.Orientation.VERTICAL} spacing={8}>
-        <box cssClasses={["header"]} spacing={8} hexpand={true}>
-          <Icon iconName="nix-snowflake" size={44} background="rounded" />
+        <box
+          cssClasses={["header"]}
+          spacing={8}
+          heightRequest={44}
+        >
           <entry
             class="search-input"
             placeholderText="Search for an app..."

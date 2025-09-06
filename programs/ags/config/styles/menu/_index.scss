@@ -1,7 +1,13 @@
 @use "../theme" as *;
 
+window.Menu {
+  background: $bg0;
+  color: $fg0;
+  padding: 8px;
+}
+
 button.menu-toggle {
-  background: rgba($fg0, 0.1);
+  background: $bg1;
   border: none;
   border-radius: 50%;
 
@@ -13,6 +19,6 @@ button.menu-toggle {
 
   &.active,
   &:hover {
-    background: rgba($fg0, 0.2);
+    background: $green;
   }
 }

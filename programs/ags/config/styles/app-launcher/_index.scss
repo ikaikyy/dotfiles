@@ -1,10 +1,10 @@
 @use "../theme" as *;
 
 window.AppLauncher {
-  background: rgba($bg0, 0.2);
+  background: $bg0;
   border-radius: 16px;
-  border: 3px solid rgba($green, 0.6);
-  color: $fg1;
+  border: 3px solid $green;
+  color: $fg0;
   font-size: 16px;
   font-weight: bold;
 
@@ -13,13 +13,13 @@ window.AppLauncher {
 
     & .header {
       & .search-input {
-        background: rgba($fg0, 0.1);
+        background: $bg1;
         border: none;
         border-radius: 8px;
         outline: none;
         padding: 8px 12px;
 
-        color: $fg1;
+        color: $fg0;
 
         &::placeholder {
           color: $fg2;
@@ -35,14 +35,18 @@ window.AppLauncher {
         padding: 0;
 
         & .app {
-          background: rgba($fg0, 0.1);
+          background: $bg1;
           border-radius: 8px;
 
           padding: 8px;
 
           &.selected,
           &:hover {
-            background: rgba($green, 0.6);
+            background: $green;
+          }
+
+          & .icon {
+            background: $bg0;
           }
         }
       }

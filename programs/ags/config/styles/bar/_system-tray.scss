@@ -1,7 +1,7 @@
 @use "../theme" as *;
 
 .system-tray {
-  background: rgba($fg0, 0.1);
+  background: $bg1;
   border-radius: 20px;
 
   &-item {
@@ -18,12 +18,12 @@
 
     &.active > button,
     & > button:hover {
-      background: rgba($fg0, 0.2);
+      background: $green;
     }
 
     &-popover {
       & > contents {
-        background: rgba($bg0, 0.4);
+        background: $bg0;
         border: 2px solid $green;
         border-radius: 16px;
 
@@ -38,8 +38,10 @@
       modelbutton {
         border-radius: 8px;
 
+        transition: all 0.2s ease-in-out;
+
         &:hover {
-          background: rgba($fg0, 0.2);
+          background: $green;
         }
       }
     }
