@@ -27,6 +27,7 @@ export default function SystemTray() {
                   valign={Gtk.Align.CENTER}
                 />
                 <Gtk.PopoverMenu
+                  hasArrow={false}
                   $={(self) => {
                     self.set_menu_model(item.menuModel);
                     self.add_css_class("system-tray-item-popover");

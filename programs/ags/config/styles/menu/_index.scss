@@ -1,24 +1,20 @@
 @use "../theme" as *;
 
-window.Menu {
-  background: $bg0;
-  color: $fg0;
-  padding: 8px;
-}
+.menu-toggle {
+  &>button {
+    background: $bg1;
+    border: none;
+    border-radius: 50%;
 
-button.menu-toggle {
-  background: $bg1;
-  border: none;
-  border-radius: 50%;
+    min-height: 0;
+    min-width: 0;
+    padding: 8px;
 
-  min-height: 0;
-  min-width: 0;
-  padding: 8px;
+    transition: all 0.2s ease-in-out;
+  }
 
-  transition: all 0.2s ease-in-out;
-
-  &.active,
-  &:hover {
+  &.active>button,
+  &>button:hover {
     background: $green;
   }
 }

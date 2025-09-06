@@ -2,7 +2,7 @@ import app from "ags/gtk4/app";
 import { Astal, Gtk } from "ags/gtk4";
 import Workspaces from "./workspaces";
 import SystemTray from "./system-tray";
-import MenuToggle from "../menu/toggle";
+import Menu from "../menu";
 
 const WINDOW_NAME = "Bar";
 
@@ -28,7 +28,7 @@ export default function Bar() {
         <box halign={Gtk.Align.CENTER}></box>
         <box halign={Gtk.Align.END} spacing={8}>
           <SystemTray />
-          <MenuToggle />
+          <Menu />
         </box>
       </box>
     </window>

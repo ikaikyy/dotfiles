@@ -1,28 +1,25 @@
-import app from "ags/gtk4/app";
-import { Astal, Gtk } from "ags/gtk4";
+import { Gtk } from "ags/gtk4";
 import NotificationsManager from "../notifications/manager";
-
-const WINDOW_NAME = "Menu";
+import { createBinding } from "ags";
+import Icon from "../icon";
 
 export default function Menu() {
-  const { TOP, RIGHT, BOTTOM } = Astal.WindowAnchor;
-
   return (
-    <window
-      visible={false}
-      name={WINDOW_NAME}
-      namespace={WINDOW_NAME}
-      class={WINDOW_NAME}
-      widthRequest={416}
-      monitor={0}
-      exclusivity={Astal.Exclusivity.NORMAL}
-      layer={Astal.Layer.OVERLAY}
-      anchor={TOP | RIGHT | BOTTOM}
-      application={app}
+    <menubutton
+      class="menu-toggle"
+      halign={Gtk.Align.CENTER}
+      valign={Gtk.Align.CENTER}
+      $={(self) => {
+        createBinding(self, "active").subscribe(() => {
+          if (self.active) self.add_css_class("active");
+          else self.remove_css_class("active");
+        });
+      }}
     >
-      <box orientation={Gtk.Orientation.VERTICAL} spacing={8}>
+      <Icon iconName="nix-snowflake" background="none" size={16} />
+      <popover class="menu-popover">
         <NotificationsManager />
-      </box>
-    </window>
+      </popover>
+    </menubutton>
   );
 }
