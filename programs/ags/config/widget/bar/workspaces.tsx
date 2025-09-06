@@ -1,6 +1,6 @@
 import Hyprland from "../../lib/hyprland";
-import { getIconPaintable } from "../../lib/icon-theme";
-import { Gdk, Gtk } from "ags/gtk4";
+import { Gtk } from "ags/gtk4";
+import Icon from "../icon";
 
 const icons = [
   "utilities-terminal-symbolic",
@@ -32,7 +32,6 @@ type WorkspaceProps = {
 
 function Workspace({ workspaceId }: WorkspaceProps) {
   const icon = icons[workspaceId - 1];
-  const iconPaintable = getIconPaintable(icon, 24);
 
   return (
     <box
@@ -50,11 +49,11 @@ function Workspace({ workspaceId }: WorkspaceProps) {
           .as((status) => `workspace ${status}`)}
         onClicked={() => Hyprland.workspaces.goToWorkspace(workspaceId)}
       >
-        {iconPaintable && (
-          <image
-            paintable={iconPaintable}
-            heightRequest={24}
-            widthRequest={24}
+        {icon && (
+          <Icon
+            iconName={icon}
+            background="none"
+            size={24}
           />
         )}
       </button>

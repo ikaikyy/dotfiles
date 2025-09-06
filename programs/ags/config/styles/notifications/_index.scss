@@ -1,0 +1,64 @@
+@use "../theme" as *;
+
+.notifications-manager {
+  background: rgba($bg0, 0.4);
+  color: $fg0;
+  padding: 8px;
+
+  & .notifications-manager-title {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  & button {
+    border-radius: 50%;
+  }
+
+  & .notification {
+    background: rgba($fg0, 0.1);
+    border-radius: 16px;
+    padding: 8px;
+
+    & .notification-title {
+      font-weight: bold;
+    }
+
+    & .notification-close {
+      background: rgba($fg0, 0.1);
+      border-radius: 50%;
+      border: none;
+
+      min-height: 0;
+      min-width: 0;
+      padding: 8px;
+
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: rgba($fg0, 0.2);
+      }
+    }
+
+    & .notification-image-container {
+      background: rgba($fg0, 0.1);
+      border-radius: 8px;
+      padding: 4px;
+
+      & image {
+        border-radius: 6px;
+      }
+    }
+
+    &.urgency-low {
+      border: 2px solid $blue;
+    }
+
+    &.urgency-normal {
+      border: 2px solid $green;
+    }
+
+    &.urgency-critical {
+      border: 2px solid $red;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { Gtk } from "ags/gtk4";
 
 export type IconProps = {
   iconName: string;
-  background?: "rounded" | "circle";
+  background?: "rounded" | "circle" | "none";
   size?: number;
 };
 

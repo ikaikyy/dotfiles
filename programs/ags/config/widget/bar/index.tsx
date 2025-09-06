@@ -1,12 +1,12 @@
 import app from "ags/gtk4/app";
-import { Astal, Gtk, Gdk } from "ags/gtk4";
+import { Astal, Gtk } from "ags/gtk4";
 import Workspaces from "./workspaces";
 import SystemTray from "./system-tray";
-import Icon from "../icon";
+import MenuToggle from "../menu/toggle";
 
 const WINDOW_NAME = "Bar";
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export default function Bar() {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
@@ -16,19 +16,19 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       namespace={WINDOW_NAME}
       class={WINDOW_NAME}
       heightRequest={48}
-      gdkmonitor={gdkmonitor}
+      monitor={0}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
       application={app}
     >
       <box halign={Gtk.Align.FILL} valign={Gtk.Align.CENTER}>
         <box halign={Gtk.Align.START} spacing={8}>
-          <Icon iconName="nix-snowflake" />
           <Workspaces />
         </box>
         <box halign={Gtk.Align.CENTER}></box>
-        <box halign={Gtk.Align.END}>
+        <box halign={Gtk.Align.END} spacing={8}>
           <SystemTray />
+          <MenuToggle />
         </box>
       </box>
     </window>

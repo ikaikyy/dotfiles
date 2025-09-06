@@ -1,7 +1,7 @@
 @use "theme" as *;
 
 box.icon {
-  background: rgba($fg0, 0.2);
+  background: rgba($fg0, 0.1);
 
   padding: 4px;
 
@@ -11,5 +11,10 @@ box.icon {
 
   &.circle {
     border-radius: 50%;
+  }
+
+  &.none {
+    background: transparent;
+    padding: 0;
   }
 }

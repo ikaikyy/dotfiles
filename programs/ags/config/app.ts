@@ -5,11 +5,14 @@ import Bar from "./widget/bar";
 
 import appLauncher from "./lib/app-launcher";
 import AppLauncher from "./widget/app-launcher";
+import Menu from "./widget/menu";
 
 app.start({
   css: style,
   main() {
-    app.get_monitors().map(Bar, AppLauncher());
+    Bar();
+    AppLauncher();
+    Menu()
   },
   requestHandler: (argv, res) => {
     appLauncher.handleAgsRequest(argv, res);

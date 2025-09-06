@@ -1,0 +1,18 @@
+@use "../theme" as *;
+
+button.menu-toggle {
+  background: rgba($fg0, 0.1);
+  border: none;
+  border-radius: 50%;
+
+  min-height: 0;
+  min-width: 0;
+  padding: 8px;
+
+  transition: all 0.2s ease-in-out;
+
+  &.active,
+  &:hover {
+    background: rgba($fg0, 0.2);
+  }
+}

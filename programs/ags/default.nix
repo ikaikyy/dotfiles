@@ -4,8 +4,9 @@
   pkgs,
   lib,
   ...
-}: {
-  imports = [inputs.ags.homeManagerModules.default];
+}:
+{
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   programs.ags = {
     enable = true;
@@ -16,22 +17,24 @@
       inputs.astal.packages.${pkgs.system}.apps
       inputs.astal.packages.${pkgs.system}.hyprland
       inputs.astal.packages.${pkgs.system}.tray
+      inputs.astal.packages.${pkgs.system}.notifd
     ];
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = ["ags run $HOME/.config/ags/app.ts --gtk 4"];
-    bind = ["$mod, M, exec, ags request 'toggle-app-launcher'"];
+    exec-once = [ "ags run $HOME/.config/ags/app.ts --gtk 4" ];
+    bind = [ "$mod, M, exec, ags request 'toggle-app-launcher'" ];
     layerrule =
       builtins.concatMap
-      (s: [
-        "blur, ${s}"
-        "blurpopups, ${s}"
-        "ignorezero, ${s}"
-      ])
-      [
-        "AppLauncher"
-        "Bar"
-      ];
+        (s: [
+          "blur, ${s}"
+          "blurpopups, ${s}"
+          "ignorezero, ${s}"
+        ])
+        [
+          "AppLauncher"
+          "Bar"
+          "Menu"
+        ];
   };
 }
