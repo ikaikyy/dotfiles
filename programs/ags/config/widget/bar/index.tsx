@@ -3,6 +3,7 @@ import { Astal, Gtk } from "ags/gtk4";
 import Workspaces from "./workspaces";
 import SystemTray from "./system-tray";
 import Menu from "../menu";
+import Time from "./time";
 
 const WINDOW_NAME = "Bar";
 
@@ -21,16 +22,21 @@ export default function Bar() {
       anchor={TOP | LEFT | RIGHT}
       application={app}
     >
-      <box halign={Gtk.Align.FILL} valign={Gtk.Align.CENTER}>
-        <box halign={Gtk.Align.START} spacing={8}>
+      <centerbox
+        valign={Gtk.Align.CENTER}
+        orientation={Gtk.Orientation.HORIZONTAL}
+      >
+        <box $type="start" halign={Gtk.Align.START} spacing={8}>
           <Workspaces />
         </box>
-        <box halign={Gtk.Align.CENTER}></box>
-        <box halign={Gtk.Align.END} spacing={8}>
+        <box $type="center" halign={Gtk.Align.CENTER}>
+          <Time />
+        </box>
+        <box $type="end" halign={Gtk.Align.END} spacing={8}>
           <SystemTray />
           <Menu />
         </box>
-      </box>
+      </centerbox>
     </window>
   );
 }
