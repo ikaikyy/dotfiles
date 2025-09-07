@@ -17,7 +17,7 @@ export default function Menu() {
       }}
     >
       <Icon iconName="nix-snowflake" background="none" size={16} />
-      <popover class="menu-popover">
+      <popover class="menu-popover" widthRequest={416}>
         <NotificationsManager />
       </popover>
     </menubutton>
