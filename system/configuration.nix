@@ -4,6 +4,7 @@
   hostName,
   ...
 }: {
+  nix.settings.trusted-users = ["root" "kaiky"];
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
