@@ -11,7 +11,6 @@
       ./boot.nix
       ./configuration.nix
       ./gnupg.nix
-      ./greetd.nix
     ]
     ++ (
       if (hostName == "desktop")

@@ -39,12 +39,10 @@
         };
       };
 
-      lsp-format.enable = true;
       lsp-status.enable = true;
 
       none-ls = {
         enable = true;
-        enableLspFormat = true;
 
         sources = {
           formatting = {
@@ -63,6 +61,11 @@
             blade_formatter = {
               enable = true;
               package = pkgs.blade-formatter;
+              settings = {
+                extra_args = [
+                  "--wrap-attributes=force-expand-multiline"
+                ];
+              };
             };
 
             stylua.enable = true;

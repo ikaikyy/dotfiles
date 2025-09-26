@@ -12,10 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:nix-community/nixvim";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # spicetify-nix = {
+    #   url = "github:Gerg-L/spicetify-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +34,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    spicetify-nix,
     nur,
     ...
   } @ inputs: {

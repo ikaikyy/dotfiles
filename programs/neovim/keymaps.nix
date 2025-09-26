@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.nixvim.keymaps = [
     # Save buffer
     {
@@ -20,7 +19,7 @@
         "v"
       ];
       key = "<leader>fmt";
-      action.__raw = "function() vim.lsp.buf.format({ async = false }) end";
+      action.__raw = "function() vim.lsp.buf.format() end";
     }
   ];
 }

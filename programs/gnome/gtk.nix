@@ -1,11 +1,4 @@
-{ config, pkgs, ... }: {
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
-    };
-  };
-
+{pkgs, ...}: {
   gtk = {
     enable = true;
 
@@ -17,7 +10,7 @@
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 24;
+      size = 20;
     };
 
     iconTheme = {
@@ -25,6 +18,8 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
   };
 }

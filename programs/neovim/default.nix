@@ -3,8 +3,7 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./autocmd.nix
@@ -42,6 +41,7 @@
       # Visual
       termguicolors = true;
       signcolumn = "yes";
+      cursorline = true;
       cmdheight = 0;
       scrolloff = 8;
       sidescrolloff = 8;

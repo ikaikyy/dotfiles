@@ -24,10 +24,12 @@
 
           mappings = {
             i = {
-              "<esc>".__raw = "require('telescope.actions').close";
+              "<Tab>".__raw = "require('telescope.actions').move_selection_next";
+              "<S-Tab>".__raw = "require('telescope.actions').move_selection_previous";
             };
             n = {
-              "<esc>".__raw = "require('telescope.actions').close";
+              "<Tab>".__raw = "require('telescope.actions').move_selection_next";
+              "<S-Tab>".__raw = "require('telescope.actions').move_selection_previous";
             };
           };
 

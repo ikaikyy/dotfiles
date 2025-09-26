@@ -19,17 +19,17 @@
 
   xdg.mimeApps = {
     defaultApplications = {
-      "text/html" = "zen-twilight";
-      "x-scheme-handler/http" = "zen-twilight";
-      "x-scheme-handler/https" = "zen-twilight";
-      "x-scheme-handler/about" = "zen-twilight";
-      "x-scheme-handler/unknown" = "zen-twilight";
-      "application/xhtml+xml" = "zen-twilight";
-      "application/x-xpinstall" = "zen-twilight";
-      "application/x-xpinstall-manifest" = "zen-twilight";
-      "application/x-web-app-manifest+json" = "zen-twilight";
-      "application/x-web-app-manifest+json; charset=utf-8" = "zen-twilight";
-      "application/xhtml+xml; charset=utf-8" = "zen-twilight";
+      "text/html" = "zen-twilight.desktop";
+      "x-scheme-handler/http" = "zen-twilight.desktop";
+      "x-scheme-handler/https" = "zen-twilight.desktop";
+      "x-scheme-handler/about" = "zen-twilight.desktop";
+      "x-scheme-handler/unknown" = "zen-twilight.desktop";
+      "application/xhtml+xml" = "zen-twilight.desktop";
+      "application/x-xpinstall" = "zen-twilight.desktop";
+      "application/x-xpinstall-manifest" = "zen-twilight.desktop";
+      "application/x-web-app-manifest+json" = "zen-twilight.desktop";
+      "application/x-web-app-manifest+json; charset=utf-8" = "zen-twilight.desktop";
+      "application/xhtml+xml; charset=utf-8" = "zen-twilight.desktop";
     };
   };
 }

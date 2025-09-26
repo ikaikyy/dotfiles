@@ -1,69 +1,36 @@
 {...}: {
   programs.nixvim.plugins = {
-    blink-cmp = {
+    cmp = {
       enable = true;
-      setupLspCapabilities = true;
-
+      autoEnableSources = true;
       settings = {
-        sources = {
-          default = [
-            "lsp"
-            "path"
-            "buffer"
-            "copilot"
-          ];
+        sources = [
+          {name = "copilot";}
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+        ];
 
-          providers.copilot = {
-            async = true;
-            module = "blink-cmp-copilot";
-            name = "copilot";
-            score_offset = 100;
-          };
+        mapping = {
+          "<Tab>" = "cmp.mapping.select_next_item()";
+          "<S-Tab>" = "cmp.mapping.select_prev_item()";
+          "<C-j>" = "cmp.mapping.scroll_docs(4)";
+          "<C-k>" = "cmp.mapping.scroll_docs(-4)";
+          "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
+          "<C-Space>" = ''
+            cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.abort()
+              else
+                cmp.complete()
+              end
+            end, { "i", "s" })'';
         };
 
-        completion = {
-          list.selection.preselect = false;
-          documentation.auto_show = true;
-          documentation.auto_show_delay_ms = 50;
-        };
-
-        keymap = {
-          "<C-space>" = [
-            "show_documentation"
-            "hide_documentation"
-            "fallback"
-          ];
-          "<C-e>" = [
-            "show"
-            "hide"
-            "fallback"
-          ];
-          "<CR>" = [
-            "accept"
-            "fallback"
-          ];
-
-          "<Tab>" = [
-            "select_next"
-            "fallback"
-          ];
-          "<S-Tab>" = [
-            "select_prev"
-            "fallback"
-          ];
-
-          "<C-j>" = [
-            "scroll_documentation_down"
-            "fallback"
-          ];
-          "<C-k>" = [
-            "scroll_documentation_up"
-            "fallback"
-          ];
-        };
+        experimental.ghost_text = true;
       };
     };
-    blink-cmp-copilot.enable = true;
+    copilot-cmp.enable = true;
 
     copilot-lua = {
       enable = true;
