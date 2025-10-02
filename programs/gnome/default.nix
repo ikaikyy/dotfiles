@@ -20,6 +20,9 @@
         accel-profile = "flat";
         speed = -0.5;
       };
+      "org/gnome/shell/app-switcher" = {
+        current-workspace-only = true;
+      };
     };
   };
 
