@@ -13,6 +13,7 @@
 
       close = ["<Super>q"];
       toggle-fullscreen = ["<Super>f"];
+      toggle-maximized = ["<Super>m"];
 
       activate-window-menu = [];
     };
