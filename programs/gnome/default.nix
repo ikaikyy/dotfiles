@@ -14,6 +14,7 @@
         color-scheme = "prefer-dark";
         clock-show-date = true;
         clock-show-weekday = true;
+        enable-hot-corners = false;
       };
       "org/gnome/desktop/peripherals/mouse" = {
         accel-profile = "flat";
