@@ -6,7 +6,10 @@
   fileSystems."/mnt/datastore" = {
     device = "/dev/disk/by-label/datastore";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
+    options = [
+      "noatime"
+      "nodiratime"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -51,6 +54,14 @@
     user = "radarr";
     group = "radarr";
     dataDir = "/mnt/datastore/radarr";
+  };
+
+  services.bazarr = {
+    enable = true;
+    openFirewall = true;
+    user = "bazarr";
+    group = "bazarr";
+    dataDir = "/mnt/datastore/bazarr";
   };
 
   services.prowlarr = {
