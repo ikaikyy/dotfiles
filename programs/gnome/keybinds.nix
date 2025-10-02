@@ -28,5 +28,17 @@
       switch-to-application-7 = [];
       switch-to-application-8 = [];
     };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open-terminal/"
+      ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open-terminal" = {
+      binding = "<Primary><Alt>t";
+      command = "ghostty";
+      name = "open-terminal";
+    };
   };
 }
