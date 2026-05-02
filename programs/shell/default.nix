@@ -12,6 +12,9 @@
   fzf-tmux-new-window = pkgs.writeShellScript "fzf-tmux-new-window" (
     builtins.readFile ./scripts/fzf-tmux-new-window.sh
   );
+  dotfiles-commit = pkgs.writeShellScript "dotfiles-commit" (
+    builtins.readFile ./scripts/dotfiles-commit.sh
+  );
 in {
   home.packages = with pkgs; [
     ghostty
@@ -19,6 +22,7 @@ in {
     direnv
     fd
     fzf
+    dotfiles-commit
   ];
 
   home.file.".config/ghostty/config".source = ./ghostty.config;
@@ -34,6 +38,11 @@ in {
       # Laptop
       update-laptop = ''sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#nixos-laptop" --sudo'';
       upgrade-laptop = ''sudo nix flake update --flake "$HOME/dotfiles" && update-laptop --upgrade'';
+
+      dot = ''git -C "$HOME/dotfiles"'';
+      dotst = ''git -C "$HOME/dotfiles" status -sb'';
+      dotlg = ''git -C "$HOME/dotfiles" log --oneline -10'';
+      dotcommit = "${dotfiles-commit}";
 
       tmux = "tmux -2";
     };
