@@ -4,9 +4,10 @@
   inputs,
   hostName,
   ...
-}: {
-  home.username = "kaiky";
-  home.homeDirectory = "/home/kaiky";
+}:
+{
+  home.username = "ikaikyy";
+  home.homeDirectory = "/home/ikaikyy";
   home.stateVersion = "24.11";
 
   home.sessionVariables = {
@@ -16,7 +17,8 @@
   };
 
   # User packages (not system-wide)
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       # Fonts
       noto-fonts
@@ -36,52 +38,65 @@
       heroku
       graalvmPackages.graalvm-ce
       mysql80
-      postgresql_15
+      postgresql_18
       ydotool
       gemini-cli
+      opencode
+      ntfs3g
+      parted
 
       smtp4dev
-      gitkraken
-      bootstrap-studio
       chromium # For things that requires chrome
       insomnia
+      thunderbird
+      pwvucontrol
+      pulseaudio
+      ventoy-full-gtk
+      _1password-cli
+      _1password-gui
     ]
     ++ (
-      if (hostName == "desktop")
-      then [
-        # Desktop specific
-        genymotion
-        android-studio
-        prismlauncher
-        (jetbrains.datagrip.override {jdk = pkgs.openjdk21;})
-        (jetbrains.idea-ultimate.override {jdk = pkgs.openjdk21;})
-        dotnet-sdk_8
-        gimp
-        lmstudio
-        ciscoPacketTracer8
-      ]
-      else []
+      if (hostName == "desktop") then
+        [
+          # Desktop specific
+          genymotion
+          android-studio
+          (prismlauncher.override {
+            jdks = [
+              graalvmPackages.graalvm-oracle_17
+              javaPackages.compiler.openjdk17-bootstrap
+              javaPackages.compiler.openjdk8-bootstrap
+            ];
+          })
+          (jetbrains.datagrip.override { jdk = pkgs.openjdk21; })
+          jetbrains.idea
+          gimp
+          lmstudio
+          android-tools
+        ]
+      else
+        [ ]
     );
 
   xdg.mimeApps.enable = true;
 
-  imports =
-    [
-      inputs.zen-browser.homeModules.twilight
-      ./programs/neovim
-      ./programs/shell
-      ./programs/gnome
-      ./programs/git
-      ./programs/zen-browser
-      ./programs/spotify
-      ./programs/discord
-      ./programs/retroarch
-    ]
-    ++ (
-      if (hostName == "desktop")
-      then []
-      else if (hostName == "laptop")
-      then []
-      else []
-    );
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+    ./programs/neovim
+    ./programs/shell
+    ./programs/gnome
+    ./programs/git
+    ./programs/zen-browser
+    ./programs/spotify
+    ./programs/discord
+    ./programs/retroarch
+  ]
+  ++ (
+    if (hostName == "desktop") then
+      [ ]
+    else if (hostName == "laptop") then
+      [ ]
+    else
+      [ ]
+  );
 }

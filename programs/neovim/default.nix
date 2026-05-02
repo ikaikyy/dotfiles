@@ -52,7 +52,7 @@
 
       # Undo
       undofile = true;
-      undodir = "/home/kaiky/.vim/undodir";
+      undodir = "/home/ikaikyy/.vim/undodir";
     };
 
     globals = {

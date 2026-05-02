@@ -1,15 +1,5 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    # Manually package and configure Kotlin LSP as it is not in nixpkgs
-    # neither implemented in nixvim yet
-    nixpkgs.overlays = [(import ../../overlays/kotlin-lsp.nix)];
-    extraPackages = [
-      pkgs.kotlin-lsp
-    ];
-    extraConfigLua = ''
-      vim.lsp.enable("kotlin_lsp")
-    '';
-
     plugins = {
       web-devicons.enable = true;
 

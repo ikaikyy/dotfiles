@@ -6,7 +6,7 @@
   programs.zen-browser = {
     enable = true;
 
-    profiles.kaiky = {
+    profiles.ikaikyy = {
       extensions = {
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           onepassword-password-manager

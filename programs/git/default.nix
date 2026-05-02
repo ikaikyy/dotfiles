@@ -1,7 +1,12 @@
-{...}: {
+{ ... }:
+{
   programs.git = {
     enable = true;
-    userEmail = "kaikyeduardomf@gmail.com";
-    userName = "Kaiky Eduardo Martins de Faria";
+    settings = {
+      user = {
+        email = "kaikyeduardomf@gmail.com";
+        name = "Kaiky Eduardo Martins de Faria";
+      };
+    };
   };
 }

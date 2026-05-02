@@ -13,7 +13,7 @@
     alpha = {
       enable = true;
 
-      theme.__raw = ''
+      settings.__raw = ''
         (function()
           local dashboard = require("alpha.themes.dashboard")
 

@@ -1,7 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./keybinds.nix
     ./gtk.nix
+  ];
+
+  home.packages = with pkgs; [
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.brightness-control-using-ddcutil
   ];
 
   dconf = {

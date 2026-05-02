@@ -15,6 +15,9 @@
       toggle-fullscreen = ["<Super>f"];
       toggle-maximized = ["<Super>m"];
 
+      switch-applications = [];
+      switch-windows = ["<Alt>Tab"];
+
       activate-window-menu = [];
     };
 

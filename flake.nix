@@ -54,7 +54,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {inherit inputs hostName;};
-              home-manager.users.kaiky = ./home.nix;
+              home-manager.users.ikaikyy = ./home.nix;
             }
           ];
         };
