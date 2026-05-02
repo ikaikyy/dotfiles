@@ -11,11 +11,13 @@
       ./boot.nix
       ./configuration.nix
       ./gnupg.nix
+      ./nix-ld.nix
+      ./1password.nix
     ]
     ++ (
       if (hostName == "desktop")
       then [
-        ./jellyfin.nix
+        # ./jellyfin.nix
         ./sshd.nix
         ./games.nix
         ./virtualisation.nix

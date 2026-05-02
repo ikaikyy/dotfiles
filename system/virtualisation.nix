@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     qemu_kvm
     libvirt
@@ -11,9 +12,10 @@
     docker
     docker-compose
     libguestfs-with-appliance
+    bottles
   ];
 
-  users.users.kaiky.extraGroups = [
+  users.users.ikaikyy.extraGroups = [
     "docker"
     "kvm"
     "adbusers"
@@ -28,19 +30,11 @@
       qemu = {
         runAsRoot = true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [
-            (pkgs.OVMF.override {
-              secureBoot = true;
-              tpmSupport = true;
-            }).fd
-          ];
-        };
       };
     };
 
     waydroid.enable = true;
+    spiceUSBRedirection.enable = true;
   };
-  networking.firewall.trustedInterfaces = ["virbr0"];
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 }

@@ -3,10 +3,11 @@
   pkgs,
   hostName,
   ...
-}: {
+}:
+{
   nix.settings.trusted-users = [
     "root"
-    "kaiky"
+    "ikaikyy"
   ];
   nix.settings.experimental-features = [
     "nix-command"
@@ -16,6 +17,10 @@
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
+    permittedInsecurePackages = [
+      "qtwebengine-5.15.19"
+      "ventoy-gtk3-1.1.10"
+    ];
   };
 
   networking.hostName = "nixos-${hostName}";
@@ -42,21 +47,20 @@
     variant = "";
   };
 
-  programs.adb.enable = true;
   programs.zsh.enable = true;
 
-  users.users.kaiky = {
+  users.users.ikaikyy = {
     isNormalUser = true;
     description = "Kaiky Eduardo Martins de Faria";
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
   environment.systemPackages = with pkgs; [
     vim
     libreoffice-qt6-fresh
@@ -95,7 +99,7 @@
       enable = true;
       wlr.enable = true;
       xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
     };
   };
 
