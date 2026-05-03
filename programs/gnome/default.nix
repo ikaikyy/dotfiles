@@ -35,7 +35,6 @@
         ];
       };
       "org/gnome/shell/extensions/paperwm" = {
-        default-focus-mode = 0;
         horizontal-margin = 0;
         vertical-margin = 0;
         vertical-margin-bottom = 0;
@@ -51,6 +50,28 @@
         switch-up-workspace = [ "<Super><Control>k" ];
         move-down-workspace = [ "<Super><Shift><Control>j" ];
         move-up-workspace = [ "<Super><Shift><Control>k" ];
+      };
+      "org/gnome/shell/extensions/vertical-workspaces" = {
+        center-app-grid = true;
+        center-dash-to-ws = true;
+        dash-isolate-workspaces = false;
+        dash-position = 3;
+        dash-position-adjust = 0;
+        overview-mode = 0;
+        show-app-icon-position = 0;
+        show-ws-preview-bg = true;
+        show-ws-switcher-bg = true;
+        show-wst-labels = 0;
+        show-wst-labels-on-hover = false;
+        workspace-animation-module = false;
+        workspace-module = true;
+        workspace-switcher-animation = 0;
+        workspace-switcher-popup-module = false;
+        ws-preview-bg-radius = 30;
+        ws-preview-scale = 95;
+        ws-switcher-wraparound = false;
+        ws-thumbnails-full = true;
+        ws-thumbnails-position = 1;
       };
     };
   };
