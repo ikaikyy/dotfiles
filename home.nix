@@ -14,6 +14,9 @@
     NIXOS_OZONE_WL = 1;
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     SDL_VIDEODRIVER = "wayland";
+    SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR = "0";
+    GTK_CSD = "0";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
 
   # User packages (not system-wide)
@@ -84,6 +87,7 @@
     inputs.zen-browser.homeModules.twilight
     ./programs/neovim
     ./programs/shell
+    ./programs/gnome/gtk.nix
     ./programs/gnome
     ./programs/git
     ./programs/zen-browser

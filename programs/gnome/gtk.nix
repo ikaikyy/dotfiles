@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   gtk = {
     enable = true;
 
@@ -21,5 +22,12 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 20;
   };
 }

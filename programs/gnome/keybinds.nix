@@ -12,7 +12,7 @@
       switch-to-workspace-9 = ["<Super>9"];
 
       close = ["<Super>q"];
-      toggle-fullscreen = ["<Super>f"];
+      toggle-fullscreen = [];
       toggle-maximized = ["<Super>m"];
 
       switch-applications = [];
@@ -36,6 +36,7 @@
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open-terminal/"
       ];
+      screensaver = ["<Super><Alt>l"];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open-terminal" = {
