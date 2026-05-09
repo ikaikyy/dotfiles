@@ -35,11 +35,16 @@
         ];
       };
       "org/gnome/shell/extensions/paperwm" = {
+        disable-topbar-styling = true;
         horizontal-margin = 0;
         vertical-margin = 0;
         vertical-margin-bottom = 0;
         window-gap = 0;
         selection-border-size = 0;
+        show-focus-mode-icon = false;
+        show-open-position-icon = false;
+        show-window-position-bar = false;
+        show-workspace-indicator = false;
       };
       "org/gnome/shell/extensions/paperwm/keybindings" = {
         switch-left = [ "<Super>h" ];
