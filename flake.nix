@@ -48,7 +48,13 @@
             home-manager.nixosModules.home-manager
             nur.modules.nixos.default
             {
-              nixpkgs.overlays = [(import ./overlays/kotlin-lsp.nix)];
+              nixpkgs.overlays = [
+                (final: prev: {
+                  openldap = prev.openldap.overrideAttrs (_: {
+                    doCheck = false;
+                  });
+                })
+              ];
 
               home-manager.backupFileExtension = "bak";
               home-manager.useGlobalPkgs = true;
