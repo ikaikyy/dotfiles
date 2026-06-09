@@ -1,18 +1,31 @@
 {
   config,
+  lib,
   pkgs,
   hostName,
   ...
 }:
 {
-  nix.settings.trusted-users = [
-    "root"
-    "ikaikyy"
-  ];
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    trusted-users = [
+      "root"
+      "ikaikyy"
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    auto-optimise-store = true;
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "weekly" ];
 
   nixpkgs.config = {
     allowBroken = true;
@@ -63,7 +76,6 @@
   environment.shells = with pkgs; [ zsh ];
   environment.systemPackages = with pkgs; [
     vim
-    libreoffice-qt6-fresh
     usbutils
     udiskie
     udisks2
@@ -89,6 +101,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    extraConfig.pipewire-pulse = lib.mkIf (hostName == "desktop") {
+      "10-simultaneous-output" = {
+        "pulse.cmd" = [
+          {
+            cmd = "load-module";
+            args = "module-combine-sink sink_name=simultaneous_output sink_properties=device.description=Simultaneous_Output slaves=alsa_output.pci-0000_03_00.1.hdmi-stereo-extra2,alsa_output.pci-0000_00_1b.0.analog-stereo";
+          }
+        ];
+      };
+    };
   };
 
   services.upower.enable = true;
