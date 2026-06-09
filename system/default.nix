@@ -13,6 +13,7 @@
       ./gnupg.nix
       ./nix-ld.nix
       ./1password.nix
+      ./tailscale.nix
     ]
     ++ (
       if (hostName == "desktop")
@@ -21,6 +22,7 @@
         ./sshd.nix
         ./games.nix
         ./virtualisation.nix
+        ./cloudflared.nix
       ]
       else if (hostName == "laptop")
       then []
