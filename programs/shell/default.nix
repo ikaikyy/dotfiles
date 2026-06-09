@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   fzf-tmux-sessions = pkgs.writeShellScript "fzf-tmux-sessions" (
     builtins.readFile ./scripts/fzf-tmux-sessions.sh
   );
@@ -12,7 +13,8 @@
   fzf-tmux-new-window = pkgs.writeShellScript "fzf-tmux-new-window" (
     builtins.readFile ./scripts/fzf-tmux-new-window.sh
   );
-in {
+in
+{
   home.packages = with pkgs; [
     ghostty
     zsh-powerlevel10k
@@ -54,6 +56,7 @@ in {
       fi
 
       export FZF_DEFAULT_COMMAND="fd --type d"
+      export OPENCODE_ENABLE_EXA=1
     '';
 
     oh-my-zsh = {
@@ -79,6 +82,7 @@ in {
     extraConfig = ''
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
+      set -g allow-passthrough on
       set -g status-left-length 40
 
       set-window-option -g mode-keys vi
