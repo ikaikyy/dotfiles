@@ -79,7 +79,6 @@
     usbutils
     udiskie
     udisks2
-    pkgs.nur.repos.ataraxiasjel.waydroid-script
   ];
 
   hardware = {

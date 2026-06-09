@@ -12,7 +12,6 @@
     docker
     docker-compose
     libguestfs-with-appliance
-    bottles
   ];
 
   users.users.ikaikyy.extraGroups = [
@@ -33,7 +32,6 @@
       };
     };
 
-    waydroid.enable = true;
     spiceUSBRedirection.enable = true;
   };
   networking.firewall.trustedInterfaces = [ "virbr0" ];
