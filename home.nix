@@ -40,21 +40,16 @@
       unrar
       heroku
       graalvmPackages.graalvm-ce
-      mysql80
       postgresql_18
       ydotool
-      gemini-cli
-      opencode
-      ntfs3g
       parted
+      opencode
 
-      smtp4dev
       chromium # For things that requires chrome
       insomnia
       thunderbird
       pwvucontrol
       pulseaudio
-      ventoy-full-gtk
       _1password-cli
       _1password-gui
     ]
@@ -63,7 +58,6 @@
         [
           # Desktop specific
           genymotion
-          android-studio
           (prismlauncher.override {
             jdks = [
               graalvmPackages.graalvm-oracle_17
@@ -71,9 +65,7 @@
               javaPackages.compiler.openjdk8-bootstrap
             ];
           })
-          (jetbrains.datagrip.override { jdk = pkgs.openjdk21; })
           jetbrains.idea
-          gimp
           lmstudio
           android-tools
         ]
