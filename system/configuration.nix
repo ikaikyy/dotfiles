@@ -79,6 +79,7 @@
     usbutils
     udiskie
     udisks2
+    xwayland-satellite
   ];
 
   hardware = {

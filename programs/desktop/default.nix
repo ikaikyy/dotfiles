@@ -6,6 +6,7 @@
     slurp
     brightnessctl
     playerctl
+    libsForQt5.qtwayland
   ];
 
   gtk = {
