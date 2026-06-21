@@ -102,7 +102,7 @@ binds {
     Mod+Space       { switch-layout "next"; }
     Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Alt+L { spawn "hyprlock"; }
+    Mod+Alt+L { spawn "sh" "-c" "pidof hyprlock || hyprlock"; }
     Ctrl+Alt+T { spawn "ghostty"; }
 
     Mod+D   { spawn "rofi" "-show" "drun" "-show-icons" "-theme" "opencode"; }

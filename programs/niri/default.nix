@@ -40,14 +40,14 @@
 
   services.swayidle = {
     enable = true;
-    events = [
-      { event = "before-sleep"; command = "${pkgs.hyprlock}/bin/hyprlock"; }
-      { event = "lock"; command = "${pkgs.hyprlock}/bin/hyprlock"; }
-    ];
+    events = {
+      before-sleep = "sh -c 'pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'";
+      lock = "sh -c 'pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'";
+    };
     timeouts = [
-      { timeout = 300; command = "${pkgs.hyprlock}/bin/hyprlock"; }
+      { timeout = 900; command = "sh -c 'pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'"; }
       {
-        timeout = 600;
+        timeout = 1800;
         command = "${pkgs.niri}/bin/niri msg power-off-monitors";
         resumeCommand = "${pkgs.niri}/bin/niri msg power-on-monitors";
       }
