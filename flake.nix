@@ -29,44 +29,54 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-  };
-
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nur,
-    ...
-  } @ inputs: {
-    nixosConfigurations = let
-      mkHost = hostName:
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {inherit hostName;};
-          modules = [
-            (./hosts + "/${hostName}/hardware-configuration.nix")
-            ./system
-            home-manager.nixosModules.home-manager
-            nur.modules.nixos.default
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  openldap = prev.openldap.overrideAttrs (_: {
-                    doCheck = false;
-                  });
-                })
-              ];
-
-              home-manager.backupFileExtension = "bak";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {inherit inputs hostName;};
-              home-manager.users.ikaikyy = ./home.nix;
-            }
-          ];
-        };
-    in {
-      nixos-desktop = mkHost "desktop";
-      nixos-laptop = mkHost "laptop";
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
     };
   };
+
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nur,
+      hermes-agent,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations =
+        let
+          mkHost =
+            hostName:
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit hostName; };
+              modules = [
+                (./hosts + "/${hostName}/hardware-configuration.nix")
+                ./system
+                hermes-agent.nixosModules.default
+                home-manager.nixosModules.home-manager
+                nur.modules.nixos.default
+                {
+                  nixpkgs.overlays = [
+                    (final: prev: {
+                      openldap = prev.openldap.overrideAttrs (_: {
+                        doCheck = false;
+                      });
+                    })
+                  ];
+
+                  home-manager.backupFileExtension = "bak";
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = { inherit inputs hostName; };
+                  home-manager.users.ikaikyy = ./home.nix;
+                }
+              ];
+            };
+        in
+        {
+          nixos-desktop = mkHost "desktop";
+          nixos-laptop = mkHost "laptop";
+        };
+    };
 }

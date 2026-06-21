@@ -89,7 +89,8 @@
   };
 
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  programs.niri.enable = true;
+  security.polkit.enable = true;
 
   services.devmon.enable = true;
   services.gvfs.enable = true;
@@ -118,7 +119,6 @@
   xdg = {
     portal = {
       enable = true;
-      wlr.enable = true;
       xdgOpenUsePortal = true;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
     };

@@ -79,8 +79,7 @@
     inputs.zen-browser.homeModules.twilight
     ./programs/neovim
     ./programs/shell
-    ./programs/gnome/gtk.nix
-    ./programs/gnome
+    ./programs/niri
     ./programs/git
     ./programs/zen-browser
     ./programs/spotify

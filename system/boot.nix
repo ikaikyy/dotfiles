@@ -1,5 +1,10 @@
 { config, pkgs, ... }: {
   boot = {
+    extraModprobeConfig = ''
+      options iwlwifi bt_coex_active=0 swcrypto=1 11n_disable=8
+      options iwlmvm power_scheme=1
+    '';
+
     kernelPackages = pkgs.linuxPackages_latest;
 
     kernelParams = [

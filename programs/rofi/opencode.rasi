@@ -1,0 +1,105 @@
+* {
+    bg: #0a0a0a;
+    bg-alt: #141414;
+    fg: #eeeeee;
+    fg-dim: #555555;
+    accent: #fab283;
+    red: #e06c75;
+    cyan: #56b6c2;
+    blue: #5c9cf5;
+    green: #7fd88f;
+    purple: #9d7cd8;
+
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: transparent;
+    text-color: @fg;
+    border: 0;
+    spacing: 2;
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 8px;
+    padding: 8px;
+    width: 480px;
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    padding: 4px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding: 4px 8px;
+    background-color: @bg-alt;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font 14";
+    padding: 0 6px 0 0;
+}
+
+entry {
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 12";
+    placeholder: "Search...";
+    placeholder-color: @fg-dim;
+}
+
+listview {
+    lines: 12;
+    columns: 1;
+    scrollbar: false;
+    cycle: true;
+    dynamic: true;
+}
+
+element {
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-color: @fg;
+    background-color: transparent;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 24px;
+    padding: 0 8px 0 0;
+}
+
+button selected {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+message {
+    background-color: @bg-alt;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-top: 4px;
+}
+
+textbox {
+    text-color: @fg;
+}
+
+error-message {
+    text-color: @red;
+    font: "JetBrainsMono Nerd Font 10";
+}

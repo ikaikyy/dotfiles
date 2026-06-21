@@ -1,0 +1,104 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font", "Noto Sans CJK SC", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: rgba(10, 10, 10, 0.9);
+    color: #eeeeee;
+}
+
+#workspaces {
+    margin: 0;
+    padding: 0 8px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    margin: 0 2px;
+    color: #323232;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #fab283;
+}
+
+#workspaces button.empty {
+    color: #1e1e1e;
+}
+
+#workspaces button:hover {
+    color: #eeeeee;
+    background: transparent;
+    box-shadow: none;
+}
+
+#window {
+    padding: 0 12px;
+    color: #eeeeee;
+    font-weight: 500;
+}
+
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #e06c75;
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    color: #56b6c2;
+}
+
+#pulseaudio.muted {
+    color: #e06c75;
+}
+
+#network {
+    padding: 0 10px;
+    color: #5c9cf5;
+}
+
+#network.disconnected {
+    color: #e06c75;
+}
+
+#cpu {
+    padding: 0 10px;
+    color: #7fd88f;
+}
+
+#memory {
+    padding: 0 10px;
+    color: #ffc09f;
+}
+
+#clock {
+    padding: 0 12px;
+    color: #9d7cd8;
+}
+
+label:focus {
+    background: transparent;
+}
+
+tooltip {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid #323232;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: #eeeeee;
+}

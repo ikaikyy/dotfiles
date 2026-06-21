@@ -24,6 +24,7 @@ in
   ];
 
   home.file.".config/ghostty/config".source = ./ghostty.config;
+  home.file.".config/ghostty/themes/opencode".source = ./opencode.theme;
 
   programs.zsh = {
     enable = true;
@@ -119,8 +120,8 @@ in
       {
         plugin = pkgs.tmuxPlugins.minimal-tmux-status;
         extraConfig = ''
-          set -g @minimal-tmux-bg "#98971A"
-          set -g @minimal-tmux-fg "#FBF1C7"
+          set -g @minimal-tmux-bg "#323232"
+          set -g @minimal-tmux-fg "#eeeeee"
         '';
       }
     ];

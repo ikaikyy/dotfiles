@@ -14,6 +14,7 @@
       ./nix-ld.nix
       ./1password.nix
       ./tailscale.nix
+      ./hermes-agent.nix
     ]
     ++ (
       if (hostName == "desktop")
